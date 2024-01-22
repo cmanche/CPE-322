@@ -13,4 +13,4 @@ _Italicized text is cool!_
 `Code`
 ---
 [linkedin](https://www.linkedin.com/in/chrismancheno/) 
-![Kool Kat](/assets/sunglass_cat.jpg "Sunglass_Cat")
+![Kool Kat](/assets/Sunglass_Cat.jpg "Sunglass_Cat")
