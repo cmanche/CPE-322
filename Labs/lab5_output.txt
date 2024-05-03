@@ -1,0 +1,849 @@
+
+
+  113  sudo apt install mosquitto mosquitto-clients
+  114  sudo dpkg --configure -a
+  115  sudo apt install mosquitto mosquitto-clients
+  116  mosquitto_sub -h localhost -v -t "\$SYS/#"
+  117* service mosquitto
+  118  netstat -tln
+  119  mosquitto_sub -h localhost -v -t test/topic &
+  120  sudo pip install paho-mqtt --break-system-packages
+  121  git clone https://github.com/eclipse/paho.mqtt.python.git
+  122  cd iot/lesson5/
+  123  client.py
+  124  python client.py
+  125  python sub.py
+  126* python sub-multiple.py~~
+  127  python subcpu.py
+  128  cd
+  129  cd demo
+  130  cp iot/lesson5/subraspi.py
+  131  cd iot/lesson5/subraspi.py
+  132  cd
+  133  cd iot/lesson5/subraspi.py
+  134  cd iot/lesson5
+  135  python subraspi.py
+  136  history > lab5_output.txt
+
+$SYS/broker/bytes/sent 1532
+$SYS/broker/publish/bytes/sent 170
+$SYS/broker/uptime 429 seconds
+$SYS/broker/load/messages/received/1min 1.52
+$SYS/broker/load/messages/sent/1min 12.33
+$SYS/broker/load/publish/sent/1min 9.89
+$SYS/broker/load/bytes/received/1min 20.54
+$SYS/broker/load/bytes/sent/1min 280.77
+$SYS/broker/load/sockets/1min 0.76
+$SYS/broker/load/connections/1min 0.76
+$SYS/broker/load/messages/received/5min 0.38
+$SYS/broker/load/messages/sent/5min 2.88
+$SYS/broker/load/publish/sent/5min 2.31
+$SYS/broker/load/bytes/received/5min 5.11
+$SYS/broker/load/bytes/sent/5min 66.78
+$SYS/broker/load/messages/sent/15min 0.99
+$SYS/broker/load/publish/sent/15min 0.79
+$SYS/broker/load/bytes/received/15min 1.77
+$SYS/broker/load/bytes/sent/15min 22.92
+$SYS/broker/messages/stored 40
+$SYS/broker/store/messages/count 40
+$SYS/broker/store/messages/bytes 163
+$SYS/broker/retained messages/count 40
+$SYS/broker/heap/current 44672
+$SYS/broker/heap/maximum 45240
+$SYS/broker/messages/sent 66
+$SYS/broker/publish/messages/sent 65
+$SYS/broker/bytes/sent 2608
+$SYS/broker/publish/bytes/sent 281
+$SYS/broker/uptime 440 seconds
+$SYS/broker/load/messages/received/1min 1.27
+$SYS/broker/load/messages/sent/1min 14.83
+$SYS/broker/load/publish/sent/1min 11.89
+$SYS/broker/load/bytes/received/1min 17.10
+$SYS/broker/load/bytes/sent/1min 325.10
+$SYS/broker/load/sockets/1min 0.63
+$SYS/broker/load/connections/1min 0.63
+$SYS/broker/load/messages/received/5min 0.36
+$SYS/broker/load/messages/sent/5min 3.76
+$SYS/broker/load/publish/sent/5min 3.01
+$SYS/broker/load/bytes/received/5min 4.93
+$SYS/broker/load/bytes/sent/5min 84.01
+$SYS/broker/load/messages/sent/15min 1.31
+$SYS/broker/load/publish/sent/15min 1.04
+$SYS/broker/load/bytes/received/15min 1.75
+$SYS/broker/load/bytes/sent/15min 29.27
+$SYS/broker/store/messages/bytes 164
+$SYS/broker/messages/sent 88
+$SYS/broker/publish/messages/sent 87
+$SYS/broker/bytes/sent 3507
+$SYS/broker/publish/bytes/sent 377
+$SYS/broker/uptime 451 seconds
+$SYS/broker/load/messages/received/1min 1.05
+$SYS/broker/load/messages/sent/1min 16.92
+$SYS/broker/load/publish/sent/1min 13.55
+$SYS/broker/load/bytes/received/1min 14.23
+$SYS/broker/load/bytes/sent/1min 362.02
+$SYS/broker/load/sockets/1min 0.53
+$SYS/broker/load/connections/1min 0.53
+$SYS/broker/load/messages/received/5min 0.35
+$SYS/broker/load/messages/sent/5min 4.61
+$SYS/broker/load/publish/sent/5min 3.69
+$SYS/broker/load/bytes/received/5min 4.75
+$SYS/broker/load/bytes/sent/5min 100.62
+$SYS/broker/load/messages/sent/15min 1.62
+$SYS/broker/load/publish/sent/15min 1.30
+$SYS/broker/load/bytes/received/15min 1.72
+$SYS/broker/load/bytes/sent/15min 35.54
+$SYS/broker/store/messages/bytes 165
+$SYS/broker/messages/sent 110
+$SYS/broker/publish/messages/sent 109
+$SYS/broker/bytes/sent 4409
+$SYS/broker/publish/bytes/sent 476
+$SYS/broker/uptime 462 seconds
+$SYS/broker/load/messages/received/1min 0.88
+$SYS/broker/load/messages/sent/1min 18.65
+$SYS/broker/load/publish/sent/1min 14.94
+$SYS/broker/load/bytes/received/1min 11.85
+$SYS/broker/load/bytes/sent/1min 392.74
+$SYS/broker/load/sockets/1min 0.44
+$SYS/broker/load/connections/1min 0.44
+$SYS/broker/load/messages/received/5min 0.34
+$SYS/broker/load/messages/sent/5min 5.42
+$SYS/broker/load/publish/sent/5min 4.34
+$SYS/broker/load/bytes/received/5min 4.58
+$SYS/broker/load/bytes/sent/5min 116.64
+$SYS/broker/load/messages/sent/15min 1.93
+$SYS/broker/load/publish/sent/15min 1.55
+$SYS/broker/load/bytes/received/15min 1.70
+$SYS/broker/load/bytes/sent/15min 41.74
+$SYS/broker/store/messages/bytes 167
+$SYS/broker/messages/sent 132
+$SYS/broker/publish/messages/sent 131
+$SYS/broker/bytes/sent 5311
+$SYS/broker/publish/bytes/sent 575
+$SYS/broker/uptime 473 seconds
+$SYS/broker/load/messages/received/1min 1.64
+$SYS/broker/load/messages/sent/1min 21.01
+$SYS/broker/load/publish/sent/1min 16.09
+$SYS/broker/load/bytes/received/1min 11.69
+$SYS/broker/load/bytes/sent/1min 420.15
+$SYS/broker/load/sockets/1min 0.37
+$SYS/broker/load/connections/1min 0.37
+$SYS/broker/load/messages/received/5min 0.52
+$SYS/broker/load/messages/sent/5min 6.41
+$SYS/broker/load/publish/sent/5min 4.97
+$SYS/broker/load/bytes/received/5min 4.81
+$SYS/broker/load/bytes/sent/5min 132.47
+$SYS/broker/load/messages/received/15min 0.19
+$SYS/broker/load/messages/sent/15min 2.31
+$SYS/broker/load/publish/sent/15min 1.79
+$SYS/broker/load/bytes/received/15min 1.82
+$SYS/broker/load/bytes/sent/15min 47.99
+$SYS/broker/heap/maximum 45272
+$SYS/broker/messages/received 3
+$SYS/broker/messages/sent 157
+$SYS/broker/publish/messages/sent 155
+$SYS/broker/bytes/received 29
+$SYS/broker/bytes/sent 6323
+$SYS/broker/publish/bytes/sent 683
+$SYS/broker/uptime 484 seconds
+$SYS/broker/load/messages/received/1min 1.37
+$SYS/broker/load/messages/sent/1min 22.97
+$SYS/broker/load/publish/sent/1min 17.96
+$SYS/broker/load/bytes/received/1min 9.73
+$SYS/broker/load/bytes/sent/1min 441.14
+$SYS/broker/load/sockets/1min 0.30
+$SYS/broker/load/connections/1min 0.30
+$SYS/broker/load/messages/received/5min 0.50
+$SYS/broker/load/messages/sent/5min 7.35
+$SYS/broker/load/publish/sent/5min 5.77
+$SYS/broker/load/bytes/received/5min 4.63
+$SYS/broker/load/bytes/sent/5min 147.34
+$SYS/broker/load/messages/sent/15min 2.68
+$SYS/broker/load/publish/sent/15min 2.10
+$SYS/broker/load/bytes/received/15min 1.79
+$SYS/broker/load/bytes/sent/15min 54.03
+$SYS/broker/store/messages/bytes 166
+$SYS/broker/messages/sent 180
+$SYS/broker/publish/messages/sent 178
+$SYS/broker/bytes/sent 7224
+$SYS/broker/publish/bytes/sent 781
+$SYS/broker/uptime 495 seconds
+$SYS/broker/load/messages/received/1min 1.14
+$SYS/broker/load/messages/sent/1min 23.69
+$SYS/broker/load/publish/sent/1min 18.61
+$SYS/broker/load/bytes/received/1min 8.10
+$SYS/broker/load/bytes/sent/1min 458.61
+$SYS/broker/load/sockets/1min 0.25
+$SYS/broker/load/connections/1min 0.25
+$SYS/broker/load/messages/received/5min 0.49
+$SYS/broker/load/messages/sent/5min 8.07
+$SYS/broker/load/publish/sent/5min 6.35
+$SYS/broker/load/bytes/received/5min 4.47
+$SYS/broker/load/bytes/sent/5min 161.67
+$SYS/broker/load/messages/sent/15min 2.98
+$SYS/broker/load/publish/sent/15min 2.34
+$SYS/broker/load/bytes/received/15min 1.77
+$SYS/broker/load/bytes/sent/15min 60.00
+$SYS/broker/messages/sent 201
+$SYS/broker/publish/messages/sent 199
+$SYS/broker/bytes/sent 8086
+$SYS/broker/publish/bytes/sent 876
+$SYS/broker/uptime 506 seconds
+$SYS/broker/load/messages/received/1min 0.95
+$SYS/broker/load/messages/sent/1min 24.29
+$SYS/broker/load/publish/sent/1min 19.15
+$SYS/broker/load/bytes/received/1min 6.75
+$SYS/broker/load/bytes/sent/1min 473.16
+$SYS/broker/load/sockets/1min 0.21
+$SYS/broker/load/connections/1min 0.21
+$SYS/broker/load/messages/received/5min 0.47
+$SYS/broker/load/messages/sent/5min 8.76
+$SYS/broker/load/publish/sent/5min 6.91
+$SYS/broker/load/bytes/received/5min 4.31
+$SYS/broker/load/bytes/sent/5min 175.49
+$SYS/broker/load/messages/sent/15min 3.27
+$SYS/broker/load/publish/sent/15min 2.58
+$SYS/broker/load/bytes/received/15min 1.75
+$SYS/broker/load/bytes/sent/15min 65.90
+$SYS/broker/messages/sent 222
+$SYS/broker/publish/messages/sent 220
+$SYS/broker/bytes/sent 8948
+$SYS/broker/publish/bytes/sent 971
+$SYS/broker/uptime 517 seconds
+$SYS/broker/load/messages/received/1min 0.79
+$SYS/broker/load/messages/sent/1min 24.79
+$SYS/broker/load/publish/sent/1min 19.59
+$SYS/broker/load/bytes/received/1min 5.62
+$SYS/broker/load/bytes/sent/1min 485.27
+$SYS/broker/load/sockets/1min 0.18
+$SYS/broker/load/connections/1min 0.18
+$SYS/broker/load/messages/received/5min 0.45
+$SYS/broker/load/messages/sent/5min 9.43
+$SYS/broker/load/publish/sent/5min 7.44
+$SYS/broker/load/bytes/received/5min 4.15
+$SYS/broker/load/bytes/sent/5min 188.81
+$SYS/broker/load/messages/sent/15min 3.56
+$SYS/broker/load/publish/sent/15min 2.81
+$SYS/broker/load/bytes/received/15min 1.73
+$SYS/broker/load/bytes/sent/15min 71.72
+$SYS/broker/messages/sent 243
+$SYS/broker/publish/messages/sent 241
+$SYS/broker/bytes/sent 9810
+$SYS/broker/publish/bytes/sent 1066
+$SYS/broker/uptime 528 seconds
+$SYS/broker/load/messages/received/1min 0.66
+$SYS/broker/load/messages/sent/1min 25.21
+$SYS/broker/load/publish/sent/1min 19.97
+$SYS/broker/load/bytes/received/1min 4.67
+$SYS/broker/load/bytes/sent/1min 496.27
+$SYS/broker/load/sockets/1min 0.15
+$SYS/broker/load/connections/1min 0.15
+$SYS/broker/load/messages/received/5min 0.44
+$SYS/broker/load/messages/sent/5min 10.07
+$SYS/broker/load/publish/sent/5min 7.96
+$SYS/broker/load/bytes/received/5min 4.00
+$SYS/broker/load/bytes/sent/5min 201.84
+$SYS/broker/load/messages/sent/15min 3.85
+$SYS/broker/load/publish/sent/15min 3.04
+$SYS/broker/load/bytes/received/15min 1.71
+$SYS/broker/load/bytes/sent/15min 77.55
+$SYS/broker/store/messages/bytes 168
+$SYS/broker/messages/sent 265
+$SYS/broker/publish/messages/sent 263
+$SYS/broker/bytes/sent 10713
+$SYS/broker/publish/bytes/sent 1167
+$SYS/broker/uptime 539 seconds
+$SYS/broker/load/messages/received/1min 1.46
+$SYS/broker/load/messages/sent/1min 26.47
+$SYS/broker/load/publish/sent/1min 20.28
+$SYS/broker/load/bytes/received/1min 5.72
+$SYS/broker/load/bytes/sent/1min 508.16
+$SYS/broker/load/sockets/1min 0.12
+$SYS/broker/load/connections/1min 0.12
+$SYS/broker/load/messages/received/5min 0.62
+$SYS/broker/load/messages/sent/5min 10.89
+$SYS/broker/load/publish/sent/5min 8.46
+$SYS/broker/load/bytes/received/5min 4.25
+$SYS/broker/load/bytes/sent/5min 215.00
+$SYS/broker/load/messages/received/15min 0.24
+$SYS/broker/load/messages/sent/15min 4.20
+$SYS/broker/load/publish/sent/15min 3.27
+$SYS/broker/load/bytes/received/15min 1.82
+$SYS/broker/load/bytes/sent/15min 83.49
+$SYS/broker/store/messages/bytes 169
+$SYS/broker/messages/received 4
+$SYS/broker/messages/sent 290
+$SYS/broker/publish/messages/sent 287
+$SYS/broker/bytes/received 31
+$SYS/broker/bytes/sent 11733
+$SYS/broker/publish/bytes/sent 1275
+$SYS/broker/uptime 550 seconds
+$SYS/broker/load/messages/received/1min 1.22
+$SYS/broker/load/messages/sent/1min 27.52
+$SYS/broker/load/publish/sent/1min 21.45
+$SYS/broker/load/bytes/received/1min 4.76
+$SYS/broker/load/bytes/sent/1min 516.23
+$SYS/broker/load/sockets/1min 0.10
+$SYS/broker/load/connections/1min 0.10
+$SYS/broker/load/messages/received/5min 0.59
+$SYS/broker/load/messages/sent/5min 11.67
+$SYS/broker/load/publish/sent/5min 9.14
+$SYS/broker/load/bytes/received/5min 4.10
+$SYS/broker/load/bytes/sent/5min 227.29
+$SYS/broker/load/messages/sent/15min 4.55
+$SYS/broker/load/publish/sent/15min 3.56
+$SYS/broker/load/bytes/received/15min 1.80
+$SYS/broker/load/bytes/sent/15min 89.24
+$SYS/broker/messages/sent 312
+$SYS/broker/publish/messages/sent 309
+$SYS/broker/bytes/sent 12598
+$SYS/broker/publish/bytes/sent 1373
+$SYS/broker/uptime 561 seconds
+$SYS/broker/load/messages/received/1min 1.01
+$SYS/broker/load/messages/sent/1min 27.47
+$SYS/broker/load/publish/sent/1min 21.51
+$SYS/broker/load/bytes/received/1min 3.96
+$SYS/broker/load/bytes/sent/1min 522.96
+$SYS/broker/load/sockets/1min 0.08
+$SYS/broker/load/connections/1min 0.08
+$SYS/broker/load/messages/received/5min 0.57
+$SYS/broker/load/messages/sent/5min 12.23
+$SYS/broker/load/publish/sent/5min 9.59
+$SYS/broker/load/bytes/received/5min 3.95
+$SYS/broker/load/bytes/sent/5min 239.14
+$SYS/broker/load/messages/sent/15min 4.82
+$SYS/broker/load/publish/sent/15min 3.78
+$SYS/broker/load/bytes/received/15min 1.78
+$SYS/broker/load/bytes/sent/15min 94.91
+$SYS/broker/messages/sent 333
+$SYS/broker/publish/messages/sent 330
+$SYS/broker/bytes/sent 13463
+$SYS/broker/publish/bytes/sent 1471
+$SYS/broker/uptime 572 seconds
+$SYS/broker/load/messages/received/1min 0.84
+$SYS/broker/load/messages/sent/1min 27.44
+$SYS/broker/load/publish/sent/1min 21.56
+$SYS/broker/load/bytes/received/1min 3.30
+$SYS/broker/load/bytes/sent/1min 528.55
+$SYS/broker/load/sockets/1min 0.07
+$SYS/broker/load/connections/1min 0.07
+$SYS/broker/load/messages/received/5min 0.55
+$SYS/broker/load/messages/sent/5min 12.78
+$SYS/broker/load/publish/sent/5min 10.03
+$SYS/broker/load/bytes/received/5min 3.81
+$SYS/broker/load/bytes/sent/5min 250.56
+$SYS/broker/load/messages/sent/15min 5.10
+$SYS/broker/load/publish/sent/15min 4.00
+$SYS/broker/load/bytes/received/15min 1.75
+$SYS/broker/load/bytes/sent/15min 100.52
+$SYS/broker/store/messages/bytes 171
+$SYS/broker/messages/sent 355
+$SYS/broker/publish/messages/sent 352
+$SYS/broker/bytes/sent 14369
+$SYS/broker/publish/bytes/sent 1574
+$SYS/broker/uptime 583 seconds
+$SYS/broker/load/messages/received/1min 0.70
+$SYS/broker/load/messages/sent/1min 27.41
+$SYS/broker/load/publish/sent/1min 21.61
+$SYS/broker/load/bytes/received/1min 2.75
+$SYS/broker/load/bytes/sent/1min 533.21
+$SYS/broker/load/sockets/1min 0.06
+$SYS/broker/load/connections/1min 0.06
+$SYS/broker/load/messages/received/5min 0.53
+$SYS/broker/load/messages/sent/5min 13.30
+$SYS/broker/load/publish/sent/5min 10.46
+$SYS/broker/load/bytes/received/5min 3.67
+$SYS/broker/load/bytes/sent/5min 261.57
+$SYS/broker/load/messages/sent/15min 5.37
+$SYS/broker/load/publish/sent/15min 4.22
+$SYS/broker/load/bytes/received/15min 1.73
+$SYS/broker/load/bytes/sent/15min 106.06
+$SYS/broker/messages/sent 376
+$SYS/broker/publish/messages/sent 373
+$SYS/broker/bytes/sent 15236
+$SYS/broker/publish/bytes/sent 1674
+^Cmanch@manch:~ $ service mosquitto status
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+ ESCOC
+
+
+
+
+
+
+ker
+/mosquitto.service; enabled; preset: enabled)
+2024-05-03 03:32:48 BST; 9min ago
+
+
+r -m 740 -p /var/log/mosquitto (code=exited, status=0/SUCCESS)
+n mosquitto /var/log/mosquitto (code=exited, status=0/SUCCESS)
+r -m 740 -p /run/mosquitto (code=exited, status=0/SUCCESS)
+n mosquitto /run/mosquitto (code=exited, status=0/SUCCESS)
+
+
+
+vice
+-c /etc/mosquitto/mosquitto.conf
+
+ng mosquitto.service - Mosquitto MQTT Broker...
+d mosquitto.service - Mosquitto MQTT Broker.
+~
+~
+~
+~
+~
+~
+ ESCOC
+
+
+
+
+
+
+
+
+bled)
+
+
+
+ted, status=0/SUCCESS)
+ted, status=0/SUCCESS)
+ status=0/SUCCESS)
+ status=0/SUCCESS)
+
+
+
+
+
+
+oker...
+ker.
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+ker
+/mosquitto.service; enabled; preset: enabled)
+2024-05-03 03:32:48 BST; 9min ago
+
+
+r -m 740 -p /var/log/mosquitto (code=exited, status=0/SUCCESS)
+n mosquitto /var/log/mosquitto (code=exited, status=0/SUCCESS)
+r -m 740 -p /run/mosquitto (code=exited, status=0/SUCCESS)
+n mosquitto /run/mosquitto (code=exited, status=0/SUCCESS)
+
+
+
+vice
+-c /etc/mosquitto/mosquitto.conf
+
+ng mosquitto.service - Mosquitto MQTT Broker...
+d mosquitto.service - Mosquitto MQTT Broker.
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+
+
+
+
+● mosquitto.service - Mosquitto MQTT Broker
+     Loaded: loaded (/lib/systemd/system/mosquitto.service; enabled; preset: en>
+     Active: active (running) since Fri 2024-05-03 03:32:48 BST; 9min ago
+       Docs: man:mosquitto.conf(5)
+             man:mosquitto(8)
+    Process: 2479 ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto (code=ex>
+    Process: 2480 ExecStartPre=/bin/chown mosquitto /var/log/mosquitto (code=ex>
+    Process: 2481 ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto (code=exited>
+    Process: 2482 ExecStartPre=/bin/chown mosquitto /run/mosquitto (code=exited>
+   Main PID: 2483 (mosquitto)
+      Tasks: 1 (limit: 756)
+        CPU: 289ms
+     CGroup: /system.slice/mosquitto.service
+             └─2483 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+
+May 03 03:32:48 manch systemd[1]: Starting mosquitto.service - Mosquitto MQTT B>
+May 03 03:32:48 manch systemd[1]: Started mosquitto.service - Mosquitto MQTT Br>
+~
+~
+~
+~
+~
+~
+lines 1-17/17 (END)
+
+manch@manch:~ $ netstat -tln
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:5900            0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.1:1883          0.0.0.0:*               LISTEN     
+tcp6       0      0 :::22                   :::*                    LISTEN     
+tcp6       0      0 ::1:631                 :::*                    LISTEN     
+tcp6       0      0 :::5900                 :::*                    LISTEN     
+tcp6       0      0 ::1:1883                :::*                    LISTEN     
+manch@manch:~ $ mosquitto_sub -h localhost -v -t test/topic &
+[1] 3190
+manch@manch:~ $ test/topic hello
+
+manch@manch:~ $ sudo pip install paho-mqtt --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting paho-mqtt
+  Downloading https://www.piwheels.org/simple/paho-mqtt/paho_mqtt-2.1.0-py3-none-any.whl (67 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.2/67.2 kB 417.2 kB/s eta 0:00:00
+Installing collected packages: paho-mqtt
+Successfully installed paho-mqtt-2.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+manch@manch:~ $ git clone https://github.com/eclipse/paho.mqtt.python.git
+Cloning into 'paho.mqtt.python'...
+remote: Enumerating objects: 6053, done.
+remote: Counting objects: 100% (2243/2243), done.
+remote: Compressing objects: 100% (624/624), done.
+remote: Total 6053 (delta 1688), reused 1939 (delta 1530), pack-reused 3810
+Receiving objects: 100% (6053/6053), 1.64 MiB | 1.94 MiB/s, done.
+Resolving deltas: 100% (3410/3410), done.
+manch@manch:~ $ cd iot/lesson5/
+manch@manch:~/iot/lesson5 $ client.py
+bash: client.py: command not found
+manch@manch:~/iot/lesson5 $ python client.py
+/home/manch/iot/lesson5/client.py:15: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+Connected with result code 0
+$SYS/broker/publish/bytes/received 1164563531102
+$SYS/broker/publish/bytes/sent 6810687601379
+$SYS/broker/publish/messages/dropped 84920210584
+$SYS/broker/publish/messages/received 2005645872
+$SYS/broker/publish/messages/sent 26892955565
+$SYS/broker/publish/bytes/received 1164596980755
+$SYS/broker/publish/bytes/sent 6810840797158
+$SYS/broker/publish/messages/dropped 84922722410
+$SYS/broker/publish/messages/received 2005707407
+$SYS/broker/publish/messages/sent 26893549481
+$SYS/broker/publish/bytes/received 1164623518985
+$SYS/broker/publish/bytes/sent 6810963102461
+$SYS/broker/publish/messages/dropped 84925140405
+$SYS/broker/publish/messages/received 2005767842
+$SYS/broker/publish/messages/sent 26894043826
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson5/client.py", line 27, in <module>
+    client.loop_forever()
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 1663, in _loop
+    socklist = select.select(rlist, wlist, [], timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson5 $ python sub.py
+/home/manch/iot/lesson5/sub.py:8: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+Connected with result code 0
+
+paho/test Hello
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson5/sub.py", line 13, in <module>
+    client.loop_forever()
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 1663, in _loop
+    socklist = select.select(rlist, wlist, [], timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson5 $ python sub-multiple.py
+/home/manch/iot/lesson5/sub-multiple.py:8: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+Connected with result code 0
+paho/test/multiple multiple 1
+paho/test/multiple multiple 2
+
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson5/sub-multiple.py", line 13, in <module>
+    client.loop_forever()
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 1663, in _loop
+    socklist = select.select(rlist, wlist, [], timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson5 $ python subcpu.py
+/home/manch/iot/lesson5/subcpu.py:8: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+Connected with result code 0
+MyCPU 2024-05-03 03:54:36
+MyCPU CPU Usage:   19.2 %
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson5/subcpu.py", line 14, in <module>
+    client.loop_forever()
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 1663, in _loop
+    socklist = select.select(rlist, wlist, [], timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson5 $ cd
+manch@manch:~ $ cd demo
+manch@manch:~/demo $ cp iot/lesson5/subraspi.py
+cp: missing destination file operand after 'iot/lesson5/subraspi.py'
+Try 'cp --help' for more information.
+manch@manch:~/demo $ cd iot/lesson5/subraspi.py
+bash: cd: iot/lesson5/subraspi.py: No such file or directory
+manch@manch:~/demo $ cd
+manch@manch:~ $ cd iot/lesson5/subraspi.py
+bash: cd: iot/lesson5/subraspi.py: Not a directory
+manch@manch:~ $ cd iot/lesson5
+manch@manch:~/iot/lesson5 $ python subraspi.py
+/home/manch/iot/lesson5/subraspi.py:8: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+Connected with result code 0
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson5/subraspi.py", line 14, in <module>
+    client.loop_forever()
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 2297, in loop_forever
+    rc = self._loop(timeout)
+         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/paho/mqtt/client.py", line 1663, in _loop
+    socklist = select.select(rlist, wlist, [], timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson5 $ history > lab5_output.txt
+manch@manch:~/iot/lesson5 $ 
