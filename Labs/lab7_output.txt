@@ -1,0 +1,388 @@
+manch@manch:~ $ sudo pip install -U psutil
+
+
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+manch@manch:~ $ sudo pip install -U psutil --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Requirement already satisfied: psutil in /usr/lib/python3/dist-packages (5.9.4)
+Collecting psutil
+  Downloading psutil-5.9.8.tar.gz (503 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 503.2/503.2 kB 2.4 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: psutil
+  Building wheel for psutil (pyproject.toml) ... done
+  Created wheel for psutil: filename=psutil-5.9.8-cp311-abi3-linux_aarch64.whl size=285621 sha256=36225c2da669fcf72e60a95a5458d466def6d5a29db842eee34479538947a04f
+  Stored in directory: /root/.cache/pip/wheels/a6/1e/65/fb0ad37886dca3f25a0aa8e50f4903c5bdbde4bb8a9b1e27de
+Successfully built psutil
+Installing collected packages: psutil
+  Attempting uninstall: psutil
+    Found existing installation: psutil 5.9.4
+    Not uninstalling psutil at /usr/lib/python3/dist-packages, outside environment /usr
+    Can't uninstall 'psutil'. No files were found to uninstall.
+Successfully installed psutil-5.9.8
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+manch@manch:~ $ cd demo
+manch@manch:~/demo $ cd
+manch@manch:~ $ cdiot/*7
+bash: cdiot/*7: No such file or directory
+manch@manch:~ $ cd iot/*7
+manch@manch:~/iot/lesson7 $ thingspeak_cpu_loop.py
+bash: thingspeak_cpu_loop.py: command not found
+manch@manch:~/iot/lesson7 $ cat thingspeak_cpu_loop.py
+import http.client, urllib.request, urllib.parse, urllib.error
+from time import localtime, strftime
+import psutil
+import time
+def doit():
+	cpu_pc = psutil.cpu_percent()
+	mem = psutil.virtual_memory()
+	mem_avail_mb = mem.available/(1024*1024)
+	params = urllib.parse.urlencode({'field1': cpu_pc, 'field2':
+             mem_avail_mb,'key':'YOURKEYHERE'})
+	headers = {"Content-type":
+               "application/x-www-form-urlencoded","Accept": "text/plain"}
+	conn = http.client.HTTPConnection("api.thingspeak.com:80")
+	try:
+		conn.request("POST", "/update", params, headers)
+		response = conn.getresponse()
+		print(cpu_pc)
+		print(mem_avail_mb)
+		print(strftime("%a, %d %b %Y %H:%M:%S", localtime()))
+		print(response.status, response.reason)
+		data = response.read()
+		conn.close()
+	except:
+		print("connection failed")
+#sleep for 60 seconds (message update interval limit of 15 seconds)
+if __name__ == "__main__":
+	while True:
+		doit()
+		time.sleep(60)
+manch@manch:~/iot/lesson7 $ cat thingspeak_feed.py
+import http.client, urllib.request, urllib.parse, urllib.error
+from time import localtime, strftime
+import psutil
+import time
+"""
+2020-11-26: Pridhvi Myneni added lines 13-18, 25, and 43-54
+1. gitignore (https://git-scm.com/docs/gitignore) now prevents students from pushing up credentials.
+2. This program now attempts to cache the API key, but always prompts the user for their preference prior to saving credentials locally.
+3. Pickle data type used to store credentials. Pickle is a binary storage version of JSON. Please note not-human-readable does not mean secure.
+4. Removed key storage in source, which is generally a bad practice, as it leads to version control systems having your key.
+5. Key for storage in a dictionary. This could be expanded in the future if other information needs to be similarly stored.
+"""
+from pickle import dump as pickle_dump
+from pickle import load as pickle_load
+from os.path import exists as file_exists
+from os.path import isfile as is_file
+PICKLE_FILE_NAME = "API_KEY.pickle"
+API_KEY_INDEX = "API_KEY"
+def doit():
+	cpu_pc = psutil.cpu_percent()
+	mem = psutil.virtual_memory()
+	mem_avail_mb = mem.available/(1024*1024)
+	params = urllib.parse.urlencode({'field1': cpu_pc, 'field2':
+#             mem_avail_mb,'key':'YOURKEYHERE'})
+             mem_avail_mb,'key':KEY})
+	headers = {"Content-type":
+               "application/x-www-form-urlencoded","Accept": "text/plain"}
+	conn = http.client.HTTPConnection("api.thingspeak.com:80")
+	try:
+		conn.request("POST", "/update", params, headers)
+		response = conn.getresponse()
+		print(cpu_pc)
+		print(mem_avail_mb)
+		print(strftime("%a, %d %b %Y %H:%M:%S", localtime()))
+		print(response.status, response.reason)
+		data = response.read()
+		conn.close()
+	except:
+		print("connection failed")
+#sleep for 60 seconds (message update interval limit of 15 seconds)
+if __name__ == "__main__":
+#caching the Write Key for the ThingSpeak API
+	if file_exists(PICKLE_FILE_NAME) and is_file(PICKLE_FILE_NAME):
+		save_file = None
+		with open(PICKLE_FILE_NAME, 'rb') as f:
+			save_file = pickle_load(f)
+		KEY = save_file[API_KEY_INDEX]
+	else:
+		key = input("An API key savefile was not found. Enter Write API Key >>> ")
+		should_save = input("Should we save this key for future use? [y/N] >>> ")
+		KEY = key.strip()
+		if len(should_save)>0 and should_save.lower().startswith("y"):
+			with open(PICKLE_FILE_NAME, 'wb') as f:
+				pickle_dump({API_KEY_INDEX: KEY}, f)  
+	while True:
+		doit()
+		time.sleep(60)
+manch@manch:~/iot/lesson7 $ python thingspeak_feed.py
+An API key savefile was not found. Enter Write API Key >>> 0Z9F9VESTMYGYAE4
+Should we save this key for future use? [y/N] >>> y
+2.6
+480.08203125
+Fri, 03 May 2024 05:51:38
+200 OK
+
+cat thingspeak_feed.py
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson7/thingspeak_feed.py", line 57, in <module>
+    time.sleep(60)
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson7 $ python thingspeak_feed.py
+33.3
+482.1171875
+Fri, 03 May 2024 05:52:30
+200 OK
+^[[A^[[A^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson7/thingspeak_feed.py", line 57, in <module>
+    time.sleep(60)
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson7 $ python thingspeak_cpu_loop.py
+50.0
+496.06640625
+Fri, 03 May 2024 05:54:29
+200 OK
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson7/thingspeak_cpu_loop.py", line 29, in <module>
+    time.sleep(60)
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson7 $ python rpi_spreadsheet.py
+Traceback (most recent call last):
+  File "/home/manch/iot/lesson7/rpi_spreadsheet.py", line 5, in <module>
+    import gspread
+ModuleNotFoundError: No module named 'gspread'
+manch@manch:~/iot/lesson7 $ python systeminfo.py
+python: can't open file '/home/manch/iot/lesson7/systeminfo.py': [Errno 2] No such file or directory
+manch@manch:~/iot/lesson7 $ python system_info.py
+Free RAM: 95 (907)
+Number of processes: 185
+Up time: 18 min
+Number of connections: 3
+Temperature in C: 54.8
+IP-address: 10.155.33.130
+CPU speed in MHz: arm_freq=1400
+
+manch@manch:~/iot/lesson7 $ sudo pip install -U gspread oauth2client
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+manch@manch:~/iot/lesson7 $ sudo pip install -U gspread oauth2client --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting gspread
+  Downloading https://www.piwheels.org/simple/gspread/gspread-6.1.0-py3-none-any.whl (55 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.2/55.2 kB 392.8 kB/s eta 0:00:00
+Collecting oauth2client
+  Downloading https://www.piwheels.org/simple/oauth2client/oauth2client-4.1.3-py2.py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 399.8 kB/s eta 0:00:00
+Collecting google-auth>=1.12.0
+  Downloading https://www.piwheels.org/simple/google-auth/google_auth-2.29.0-py2.py3-none-any.whl (189 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 189.2/189.2 kB 807.0 kB/s eta 0:00:00
+Collecting google-auth-oauthlib>=0.4.1
+  Downloading https://www.piwheels.org/simple/google-auth-oauthlib/google_auth_oauthlib-1.2.0-py2.py3-none-any.whl (23 kB)
+Collecting StrEnum==0.4.15
+  Downloading https://www.piwheels.org/simple/strenum/StrEnum-0.4.15-py3-none-any.whl (8.9 kB)
+Collecting httplib2>=0.9.1
+  Downloading https://www.piwheels.org/simple/httplib2/httplib2-0.22.0-py3-none-any.whl (96 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.9/96.9 kB 887.4 kB/s eta 0:00:00
+Collecting pyasn1>=0.1.7
+  Downloading https://www.piwheels.org/simple/pyasn1/pyasn1-0.6.0-py2.py3-none-any.whl (85 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.3/85.3 kB 720.4 kB/s eta 0:00:00
+Collecting pyasn1-modules>=0.0.5
+  Downloading https://www.piwheels.org/simple/pyasn1-modules/pyasn1_modules-0.4.0-py3-none-any.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.2/181.2 kB 1.3 MB/s eta 0:00:00
+Collecting rsa>=3.1.4
+  Downloading https://www.piwheels.org/simple/rsa/rsa-4.9-py3-none-any.whl (34 kB)
+Requirement already satisfied: six>=1.6.1 in /usr/lib/python3/dist-packages (from oauth2client) (1.16.0)
+Collecting cachetools<6.0,>=2.0.0
+  Downloading https://www.piwheels.org/simple/cachetools/cachetools-5.3.3-py3-none-any.whl (9.3 kB)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/lib/python3/dist-packages (from google-auth-oauthlib>=0.4.1->gspread) (1.3.0)
+Collecting pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2
+  Downloading https://www.piwheels.org/simple/pyparsing/pyparsing-3.1.2-py3-none-any.whl (103 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.2/103.2 kB 457.3 kB/s eta 0:00:00
+Installing collected packages: StrEnum, pyparsing, pyasn1, cachetools, rsa, pyasn1-modules, httplib2, oauth2client, google-auth, google-auth-oauthlib, gspread
+Successfully installed StrEnum-0.4.15 cachetools-5.3.3 google-auth-2.29.0 google-auth-oauthlib-1.2.0 gspread-6.1.0 httplib2-0.22.0 oauth2client-4.1.3 pyasn1-0.6.0 pyasn1-modules-0.4.0 pyparsing-3.1.2 rsa-4.9
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+manch@manch:~/iot/lesson7 $ cp
+cp: missing file operand
+Try 'cp --help' for more information.
+manch@manch:~/iot/lesson7 $ --help
+bash: --help: command not found
+manch@manch:~/iot/lesson7 $ cp --help
+Usage: cp [OPTION]... [-T] SOURCE DEST
+  or:  cp [OPTION]... SOURCE... DIRECTORY
+  or:  cp [OPTION]... -t DIRECTORY SOURCE...
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --archive                same as -dR --preserve=all
+      --attributes-only        don't copy the file data, just the attributes
+      --backup[=CONTROL]       make a backup of each existing destination file
+  -b                           like --backup but does not accept an argument
+      --copy-contents          copy contents of special files when recursive
+  -d                           same as --no-dereference --preserve=links
+  -f, --force                  if an existing destination file cannot be
+                                 opened, remove it and try again (this option
+                                 is ignored when the -n option is also used)
+  -i, --interactive            prompt before overwrite (overrides a previous -n
+                                  option)
+  -H                           follow command-line symbolic links in SOURCE
+  -l, --link                   hard link files instead of copying
+  -L, --dereference            always follow symbolic links in SOURCE
+  -n, --no-clobber             do not overwrite an existing file (overrides
+                                 a previous -i option)
+  -P, --no-dereference         never follow symbolic links in SOURCE
+  -p                           same as --preserve=mode,ownership,timestamps
+      --preserve[=ATTR_LIST]   preserve the specified attributes (default:
+                                 mode,ownership,timestamps), if possible
+                                 additional attributes: context, links, xattr,
+                                 all
+      --no-preserve=ATTR_LIST  don't preserve the specified attributes
+      --parents                use full source file name under DIRECTORY
+  -R, -r, --recursive          copy directories recursively
+      --reflink[=WHEN]         control clone/CoW copies. See below
+      --remove-destination     remove each existing destination file before
+                                 attempting to open it (contrast with --force)
+      --sparse=WHEN            control creation of sparse files. See below
+      --strip-trailing-slashes  remove any trailing slashes from each SOURCE
+                                 argument
+  -s, --symbolic-link          make symbolic links instead of copying
+  -S, --suffix=SUFFIX          override the usual backup suffix
+  -t, --target-directory=DIRECTORY  copy all SOURCE arguments into DIRECTORY
+  -T, --no-target-directory    treat DEST as a normal file
+  -u, --update                 copy only when the SOURCE file is newer
+                                 than the destination file or when the
+                                 destination file is missing
+  -v, --verbose                explain what is being done
+  -x, --one-file-system        stay on this file system
+  -Z                           set SELinux security context of destination
+                                 file to default type
+      --context[=CTX]          like -Z, or if CTX is specified then set the
+                                 SELinux or SMACK security context to CTX
+      --help        display this help and exit
+      --version     output version information and exit
+
+By default, sparse SOURCE files are detected by a crude heuristic and the
+corresponding DEST file is made sparse as well.  That is the behavior
+selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST
+file whenever the SOURCE file contains a long enough sequence of zero bytes.
+Use --sparse=never to inhibit creation of sparse files.
+
+When --reflink[=always] is specified, perform a lightweight copy, where the
+data blocks are copied only when modified.  If this is not possible the copy
+fails, or if --reflink=auto is specified, fall back to a standard copy.
+Use --reflink=never to ensure a standard copy is performed.
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       never make backups (even if --backup is given)
+  numbered, t     make numbered backups
+  existing, nil   numbered if numbered backups exist, simple otherwise
+  simple, never   always make simple backups
+
+As a special case, cp makes a backup of SOURCE when the force and backup
+options are given and SOURCE and DEST are the same name for an existing,
+regular file.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/cp>
+or available locally via: info '(coreutils) cp invocation'
+manch@manch:~/iot/lesson7 $ python rpi_spreadsheet.py
+Free RAM: 0 (907)
+Number of processes: 206
+Up time: 39 min
+Number of connections: 7
+Temperature in C: 58.0
+IP-address: 10.155.33.130
+CPU speed in MHz: arm_freq=1400
+
+Logging sensor measurements to SPREADSHEET_NAME every 10 seconds.
+Press Ctrl-C to quit.
+Unable to login and get spreadsheet. Check OAuth credentials, spreadsheet name, and
+make sure spreadsheet is shared to the client_email address in the OAuth .json file!
+Google sheet login failed with error: <Response [200]>
+manch@manch:~/iot/lesson7 $ nano rpi_spreadsheet.py
+manch@manch:~/iot/lesson7 $ python rpi_spreadsheet.py
+Free RAM: 0 (907)
+Number of processes: 205
+Up time: 49 min
+Number of connections: 4
+Temperature in C: 55.8
+IP-address: 10.155.33.130
+CPU speed in MHz: arm_freq=1400
+
+Logging sensor measurements to rpidata every 10 seconds.
+Press Ctrl-C to quit.
+2024-05-03 06:35:34.557104
+CPU Usage:   17.0 %
+Temperature: 55.8 C
+Wrote a row to rpidata
+2024-05-03 06:35:44.736862
+CPU Usage:   3.2 %
+Temperature: 54.8 C
+Wrote a row to rpidata
+^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson7/rpi_spreadsheet.py", line 49, in <module>
+    time.sleep(FREQUENCY_SECONDS)
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson7 $ history
+  145  sudo pip install -U psutil
+  146  sudo pip install -U psutil --break-system-packages
+  147  cd demo
+  148  cd
+  149  cdiot/*7
+  150  cd iot/*7
+  151  thingspeak_cpu_loop.py
+  152  cat thingspeak_cpu_loop.py
+  153  cat thingspeak_feed.py
+  154  python thingspeak_feed.py
+  155  python thingspeak_cpu_loop.py
+  156  python rpi_spreadsheet.py
+  157  python systeminfo.py
+  158  python system_info.py
+  159  sudo pip install -U gspread oauth2client
+  160  sudo pip install -U gspread oauth2client --break-system-packages
+  161  cp
+  162  --help
+  163  cp --help
+  164  python rpi_spreadsheet.py
+  165  nano rpi_spreadsheet.py
+  166  python rpi_spreadsheet.py
+  167  history
+manch@manch:~/iot/lesson7 $ > lab7_output
