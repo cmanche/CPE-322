@@ -1,0 +1,951 @@
+Processing triggers for man-db (2.11.2-2) ...
+Processing triggers for libc-bin (2.36-9+rpt2+deb12u4) ...
+manch@manch:~ $ sudo apt install python3-matplotlib
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  fonts-lyx isympy-common isympy3 libjs-jquery-ui libqhull-r8.0
+  python-matplotlib-data python3-appdirs python3-attr python3-brotli
+  python3-contourpy python3-cycler python3-dateutil python3-fonttools
+  python3-fs python3-kiwisolver python3-lz4 python3-mpmath python3-packaging
+  python3-pil.imagetk python3-pyparsing python3-sympy python3-ufolib2
+  unicode-data
+Suggested packages:
+  libjs-jquery-ui-docs python-attr-doc python-cycler-doc cm-super-minimal
+  dvipng fonts-staypuft inkscape ipython3 python3-cairocffi python3-gobject
+  python3-sip python3-tornado texlive-extra-utils texlive-latex-extra
+  python-mpmath-doc python3-gmpy2 python-pil-doc python-pyparsing-doc
+  texlive-fonts-extra python-sympy-doc
+The following NEW packages will be installed:
+  fonts-lyx isympy-common isympy3 libjs-jquery-ui libqhull-r8.0
+  python-matplotlib-data python3-appdirs python3-attr python3-brotli
+  python3-contourpy python3-cycler python3-dateutil python3-fonttools
+  python3-fs python3-kiwisolver python3-lz4 python3-matplotlib python3-mpmath
+  python3-packaging python3-pil.imagetk python3-pyparsing python3-sympy
+  python3-ufolib2 unicode-data
+0 upgraded, 24 newly installed, 0 to remove and 97 not upgraded.
+Need to get 25.2 MB of archives.
+After this operation, 116 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://deb.debian.org/debian bookworm/main arm64 fonts-lyx all 2.3.7-1 [186 kB]
+Get:2 http://deb.debian.org/debian bookworm/main arm64 isympy-common all 1.11.1-1 [233 kB]
+Get:3 http://deb.debian.org/debian bookworm/main arm64 python3-mpmath all 1.2.1-2 [418 kB]
+Get:4 http://deb.debian.org/debian bookworm/main arm64 python3-sympy all 1.11.1-1 [4,358 kB]
+Get:5 http://deb.debian.org/debian bookworm/main arm64 isympy3 all 1.11.1-1 [5,524 B]
+Get:6 http://deb.debian.org/debian bookworm/main arm64 libjs-jquery-ui all 1.13.2+dfsg-1 [250 kB]
+Get:7 http://deb.debian.org/debian bookworm/main arm64 libqhull-r8.0 arm64 2020.2-5 [230 kB]
+Get:8 http://deb.debian.org/debian bookworm/main arm64 python-matplotlib-data all 3.6.3-1 [2,744 kB]
+Get:9 http://deb.debian.org/debian bookworm/main arm64 python3-appdirs all 1.4.4-3 [13.0 kB]
+Get:10 http://deb.debian.org/debian bookworm/main arm64 python3-attr all 22.2.0-1 [65.4 kB]
+Get:11 http://deb.debian.org/debian bookworm/main arm64 python3-brotli arm64 1.0.9-2+b6 [281 kB]
+Get:12 http://deb.debian.org/debian bookworm/main arm64 python3-contourpy arm64 1.0.7-1+b1 [154 kB]
+Get:13 http://deb.debian.org/debian bookworm/main arm64 python3-cycler all 0.11.0-1 [8,020 B]
+Get:14 http://deb.debian.org/debian bookworm/main arm64 python3-dateutil all 2.8.2-2 [78.3 kB]
+Get:15 http://deb.debian.org/debian bookworm/main arm64 python3-ufolib2 all 0.14.0+dfsg1-1 [34.3 kB]
+Get:16 http://deb.debian.org/debian bookworm/main arm64 python3-fs all 2.4.16-2 [95.2 kB]
+Get:17 http://deb.debian.org/debian bookworm/main arm64 python3-lz4 arm64 4.0.2+dfsg-1+b2 [25.0 kB]
+Get:18 http://deb.debian.org/debian bookworm/main arm64 unicode-data all 15.0.0-1 [7,984 kB]
+Get:19 http://deb.debian.org/debian bookworm/main arm64 python3-fonttools arm64 4.38.0-1+b1 [990 kB]
+Get:20 http://deb.debian.org/debian bookworm/main arm64 python3-kiwisolver arm64 1.4.4-1+b1 [55.4 kB]
+Get:21 http://deb.debian.org/debian bookworm/main arm64 python3-pil.imagetk arm64 9.4.0-1.1+b1 [74.4 kB]
+Get:22 http://deb.debian.org/debian bookworm/main arm64 python3-pyparsing all 3.0.9-1 [138 kB]
+Get:23 http://deb.debian.org/debian bookworm/main arm64 python3-packaging all 23.0-1 [32.5 kB]
+Get:24 http://deb.debian.org/debian bookworm/main arm64 python3-matplotlib arm64 3.6.3-1+b1 [6,774 kB]
+Fetched 25.2 MB in 2s (12.5 MB/s)              
+Selecting previously unselected package fonts-lyx.
+(Reading database ... 153124 files and directories currently installed.)
+Preparing to unpack .../00-fonts-lyx_2.3.7-1_all.deb ...
+Unpacking fonts-lyx (2.3.7-1) ...
+Selecting previously unselected package isympy-common.
+Preparing to unpack .../01-isympy-common_1.11.1-1_all.deb ...
+Unpacking isympy-common (1.11.1-1) ...
+Selecting previously unselected package python3-mpmath.
+Preparing to unpack .../02-python3-mpmath_1.2.1-2_all.deb ...
+Unpacking python3-mpmath (1.2.1-2) ...
+Selecting previously unselected package python3-sympy.
+Preparing to unpack .../03-python3-sympy_1.11.1-1_all.deb ...
+Unpacking python3-sympy (1.11.1-1) ...
+Selecting previously unselected package isympy3.
+Preparing to unpack .../04-isympy3_1.11.1-1_all.deb ...
+Unpacking isympy3 (1.11.1-1) ...
+Selecting previously unselected package libjs-jquery-ui.
+Preparing to unpack .../05-libjs-jquery-ui_1.13.2+dfsg-1_all.deb ...
+Unpacking libjs-jquery-ui (1.13.2+dfsg-1) ...
+Selecting previously unselected package libqhull-r8.0:arm64.
+Preparing to unpack .../06-libqhull-r8.0_2020.2-5_arm64.deb ...
+Unpacking libqhull-r8.0:arm64 (2020.2-5) ...
+Selecting previously unselected package python-matplotlib-data.
+Preparing to unpack .../07-python-matplotlib-data_3.6.3-1_all.deb ...
+Unpacking python-matplotlib-data (3.6.3-1) ...
+Selecting previously unselected package python3-appdirs.
+Preparing to unpack .../08-python3-appdirs_1.4.4-3_all.deb ...
+Unpacking python3-appdirs (1.4.4-3) ...
+Selecting previously unselected package python3-attr.
+Preparing to unpack .../09-python3-attr_22.2.0-1_all.deb ...
+Unpacking python3-attr (22.2.0-1) ...
+Selecting previously unselected package python3-brotli.
+Preparing to unpack .../10-python3-brotli_1.0.9-2+b6_arm64.deb ...
+Unpacking python3-brotli (1.0.9-2+b6) ...
+Selecting previously unselected package python3-contourpy.
+Preparing to unpack .../11-python3-contourpy_1.0.7-1+b1_arm64.deb ...
+Unpacking python3-contourpy (1.0.7-1+b1) ...
+Selecting previously unselected package python3-cycler.
+Preparing to unpack .../12-python3-cycler_0.11.0-1_all.deb ...
+Unpacking python3-cycler (0.11.0-1) ...
+Selecting previously unselected package python3-dateutil.
+Preparing to unpack .../13-python3-dateutil_2.8.2-2_all.deb ...
+Unpacking python3-dateutil (2.8.2-2) ...
+Selecting previously unselected package python3-ufolib2.
+Preparing to unpack .../14-python3-ufolib2_0.14.0+dfsg1-1_all.deb ...
+Unpacking python3-ufolib2 (0.14.0+dfsg1-1) ...
+Selecting previously unselected package python3-fs.
+Preparing to unpack .../15-python3-fs_2.4.16-2_all.deb ...
+Unpacking python3-fs (2.4.16-2) ...
+Selecting previously unselected package python3-lz4.
+Preparing to unpack .../16-python3-lz4_4.0.2+dfsg-1+b2_arm64.deb ...
+Unpacking python3-lz4 (4.0.2+dfsg-1+b2) ...
+Selecting previously unselected package unicode-data.
+Preparing to unpack .../17-unicode-data_15.0.0-1_all.deb ...
+Unpacking unicode-data (15.0.0-1) ...
+Selecting previously unselected package python3-fonttools.
+Preparing to unpack .../18-python3-fonttools_4.38.0-1+b1_arm64.deb ...
+Unpacking python3-fonttools (4.38.0-1+b1) ...
+Selecting previously unselected package python3-kiwisolver.
+Preparing to unpack .../19-python3-kiwisolver_1.4.4-1+b1_arm64.deb ...
+Unpacking python3-kiwisolver (1.4.4-1+b1) ...
+Selecting previously unselected package python3-pil.imagetk:arm64.
+Preparing to unpack .../20-python3-pil.imagetk_9.4.0-1.1+b1_arm64.deb ...
+Unpacking python3-pil.imagetk:arm64 (9.4.0-1.1+b1) ...
+Selecting previously unselected package python3-pyparsing.
+Preparing to unpack .../21-python3-pyparsing_3.0.9-1_all.deb ...
+Unpacking python3-pyparsing (3.0.9-1) ...
+Selecting previously unselected package python3-packaging.
+Preparing to unpack .../22-python3-packaging_23.0-1_all.deb ...
+Unpacking python3-packaging (23.0-1) ...
+Selecting previously unselected package python3-matplotlib.
+Preparing to unpack .../23-python3-matplotlib_3.6.3-1+b1_arm64.deb ...
+Unpacking python3-matplotlib (3.6.3-1+b1) ...
+Setting up python3-attr (22.2.0-1) ...
+Setting up python3-lz4 (4.0.2+dfsg-1+b2) ...
+Setting up fonts-lyx (2.3.7-1) ...
+Setting up isympy-common (1.11.1-1) ...
+Setting up libqhull-r8.0:arm64 (2020.2-5) ...
+Setting up unicode-data (15.0.0-1) ...
+Setting up python3-packaging (23.0-1) ...
+Setting up libjs-jquery-ui (1.13.2+dfsg-1) ...
+Setting up python3-pyparsing (3.0.9-1) ...
+Setting up python3-pil.imagetk:arm64 (9.4.0-1.1+b1) ...
+Setting up python3-brotli (1.0.9-2+b6) ...
+Setting up python3-cycler (0.11.0-1) ...
+Setting up python3-kiwisolver (1.4.4-1+b1) ...
+Setting up python3-dateutil (2.8.2-2) ...
+Setting up python3-contourpy (1.0.7-1+b1) ...
+Setting up python3-mpmath (1.2.1-2) ...
+Setting up python-matplotlib-data (3.6.3-1) ...
+Setting up python3-appdirs (1.4.4-3) ...
+Setting up python3-sympy (1.11.1-1) ...
+Setting up python3-fs (2.4.16-2) ...
+Setting up isympy3 (1.11.1-1) ...
+Setting up python3-fonttools (4.38.0-1+b1) ...
+Setting up python3-ufolib2 (0.14.0+dfsg1-1) ...
+Setting up python3-matplotlib (3.6.3-1+b1) ...
+Processing triggers for libc-bin (2.36-9+rpt2+deb12u4) ...
+Processing triggers for man-db (2.11.2-2) ...
+Processing triggers for fontconfig (2.14.1-4) ...
+manch@manch:~ $ sudo apt install python3-pandas
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libaec0 libblosc1 libhdf5-103-1 libsz2 python-odf-doc python-odf-tools
+  python-tables-data python3-bottleneck python3-defusedxml python3-et-xmlfile
+  python3-iniconfig python3-jdcal python3-numexpr python3-odf python3-openpyxl
+  python3-pandas-lib python3-pluggy python3-py python3-pytest python3-tables
+  python3-tables-lib
+Suggested packages:
+  python-bottleneck-doc python-pandas-doc python3-statsmodels subversion
+  python3-netcdf4 python-tables-doc vitables
+The following NEW packages will be installed:
+  libaec0 libblosc1 libhdf5-103-1 libsz2 python-odf-doc python-odf-tools
+  python-tables-data python3-bottleneck python3-defusedxml python3-et-xmlfile
+  python3-iniconfig python3-jdcal python3-numexpr python3-odf python3-openpyxl
+  python3-pandas python3-pandas-lib python3-pluggy python3-py python3-pytest
+  python3-tables python3-tables-lib
+0 upgraded, 22 newly installed, 0 to remove and 97 not upgraded.
+Need to get 8,812 kB of archives.
+After this operation, 53.7 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://deb.debian.org/debian bookworm/main arm64 libaec0 arm64 1.0.6-1+b1 [19.9 kB]
+Get:2 http://deb.debian.org/debian bookworm/main arm64 libblosc1 arm64 1.21.3+ds-1 [38.6 kB]
+Get:3 http://deb.debian.org/debian bookworm/main arm64 libsz2 arm64 1.0.6-1+b1 [7,740 B]
+Get:4 http://deb.debian.org/debian bookworm/main arm64 libhdf5-103-1 arm64 1.10.8+repack1-1 [1,037 kB]
+Get:5 http://deb.debian.org/debian bookworm/main arm64 python-odf-doc all 1.4.2-2 [213 kB]
+Get:6 http://deb.debian.org/debian bookworm/main arm64 python3-defusedxml all 0.7.1-2 [43.3 kB]
+Get:7 http://deb.debian.org/debian bookworm/main arm64 python3-odf all 1.4.2-2 [78.0 kB]
+Get:8 http://deb.debian.org/debian bookworm/main arm64 python-odf-tools all 1.4.2-2 [28.1 kB]
+Get:9 http://deb.debian.org/debian bookworm/main arm64 python-tables-data all 3.7.0-5 [47.2 kB]
+Get:10 http://deb.debian.org/debian bookworm/main arm64 python3-bottleneck arm64 1.3.5+ds1-2+b1 [77.8 kB]
+Get:11 http://deb.debian.org/debian bookworm/main arm64 python3-et-xmlfile all 1.0.1-2.1 [9,180 B]
+Get:12 http://deb.debian.org/debian bookworm/main arm64 python3-iniconfig all 1.1.1-2 [6,396 B]
+Get:13 http://deb.debian.org/debian bookworm/main arm64 python3-jdcal all 1.0-1.3 [7,904 B]
+Get:14 http://deb.debian.org/debian bookworm/main arm64 python3-numexpr arm64 2.8.4-1+b2 [84.6 kB]
+Get:15 http://deb.debian.org/debian bookworm/main arm64 python3-openpyxl all 3.0.9-1 [161 kB]
+Get:16 http://deb.debian.org/debian bookworm/main arm64 python3-pandas-lib arm64 1.5.3+dfsg-2 [3,048 kB]
+Get:17 http://deb.debian.org/debian bookworm/main arm64 python3-pandas all 1.5.3+dfsg-2 [2,885 kB]
+Get:18 http://deb.debian.org/debian bookworm/main arm64 python3-pluggy all 1.0.0+repack-1 [19.7 kB]
+Get:19 http://deb.debian.org/debian bookworm/main arm64 python3-py all 1.11.0-1 [89.2 kB]
+Get:20 http://deb.debian.org/debian bookworm/main arm64 python3-pytest all 7.2.1-2 [236 kB]
+Get:21 http://deb.debian.org/debian bookworm/main arm64 python3-tables-lib arm64 3.7.0-5+b1 [334 kB]
+Get:22 http://deb.debian.org/debian bookworm/main arm64 python3-tables all 3.7.0-5 [339 kB]
+Fetched 8,812 kB in 2s (4,877 kB/s)      
+Selecting previously unselected package libaec0:arm64.
+(Reading database ... 156702 files and directories currently installed.)
+Preparing to unpack .../00-libaec0_1.0.6-1+b1_arm64.deb ...
+Unpacking libaec0:arm64 (1.0.6-1+b1) ...
+Selecting previously unselected package libblosc1:arm64.
+Preparing to unpack .../01-libblosc1_1.21.3+ds-1_arm64.deb ...
+Unpacking libblosc1:arm64 (1.21.3+ds-1) ...
+Selecting previously unselected package libsz2:arm64.
+Preparing to unpack .../02-libsz2_1.0.6-1+b1_arm64.deb ...
+Unpacking libsz2:arm64 (1.0.6-1+b1) ...
+Selecting previously unselected package libhdf5-103-1:arm64.
+Preparing to unpack .../03-libhdf5-103-1_1.10.8+repack1-1_arm64.deb ...
+Unpacking libhdf5-103-1:arm64 (1.10.8+repack1-1) ...
+Selecting previously unselected package python-odf-doc.
+Preparing to unpack .../04-python-odf-doc_1.4.2-2_all.deb ...
+Unpacking python-odf-doc (1.4.2-2) ...
+Selecting previously unselected package python3-defusedxml.
+Preparing to unpack .../05-python3-defusedxml_0.7.1-2_all.deb ...
+Unpacking python3-defusedxml (0.7.1-2) ...
+Selecting previously unselected package python3-odf.
+Preparing to unpack .../06-python3-odf_1.4.2-2_all.deb ...
+Unpacking python3-odf (1.4.2-2) ...
+Selecting previously unselected package python-odf-tools.
+Preparing to unpack .../07-python-odf-tools_1.4.2-2_all.deb ...
+Unpacking python-odf-tools (1.4.2-2) ...
+Selecting previously unselected package python-tables-data.
+Preparing to unpack .../08-python-tables-data_3.7.0-5_all.deb ...
+Unpacking python-tables-data (3.7.0-5) ...
+Selecting previously unselected package python3-bottleneck.
+Preparing to unpack .../09-python3-bottleneck_1.3.5+ds1-2+b1_arm64.deb ...
+Unpacking python3-bottleneck (1.3.5+ds1-2+b1) ...
+Selecting previously unselected package python3-et-xmlfile.
+Preparing to unpack .../10-python3-et-xmlfile_1.0.1-2.1_all.deb ...
+Unpacking python3-et-xmlfile (1.0.1-2.1) ...
+Selecting previously unselected package python3-iniconfig.
+Preparing to unpack .../11-python3-iniconfig_1.1.1-2_all.deb ...
+Unpacking python3-iniconfig (1.1.1-2) ...
+Selecting previously unselected package python3-jdcal.
+Preparing to unpack .../12-python3-jdcal_1.0-1.3_all.deb ...
+Unpacking python3-jdcal (1.0-1.3) ...
+Selecting previously unselected package python3-numexpr.
+Preparing to unpack .../13-python3-numexpr_2.8.4-1+b2_arm64.deb ...
+Unpacking python3-numexpr (2.8.4-1+b2) ...
+Selecting previously unselected package python3-openpyxl.
+Preparing to unpack .../14-python3-openpyxl_3.0.9-1_all.deb ...
+Unpacking python3-openpyxl (3.0.9-1) ...
+Selecting previously unselected package python3-pandas-lib:arm64.
+Preparing to unpack .../15-python3-pandas-lib_1.5.3+dfsg-2_arm64.deb ...
+Unpacking python3-pandas-lib:arm64 (1.5.3+dfsg-2) ...
+Selecting previously unselected package python3-pandas.
+Preparing to unpack .../16-python3-pandas_1.5.3+dfsg-2_all.deb ...
+Unpacking python3-pandas (1.5.3+dfsg-2) ...
+Selecting previously unselected package python3-pluggy.
+Preparing to unpack .../17-python3-pluggy_1.0.0+repack-1_all.deb ...
+Unpacking python3-pluggy (1.0.0+repack-1) ...
+Selecting previously unselected package python3-py.
+Preparing to unpack .../18-python3-py_1.11.0-1_all.deb ...
+Unpacking python3-py (1.11.0-1) ...
+Selecting previously unselected package python3-pytest.
+Preparing to unpack .../19-python3-pytest_7.2.1-2_all.deb ...
+Unpacking python3-pytest (7.2.1-2) ...
+Selecting previously unselected package python3-tables-lib.
+Preparing to unpack .../20-python3-tables-lib_3.7.0-5+b1_arm64.deb ...
+Unpacking python3-tables-lib (3.7.0-5+b1) ...
+Selecting previously unselected package python3-tables.
+Preparing to unpack .../21-python3-tables_3.7.0-5_all.deb ...
+Unpacking python3-tables (3.7.0-5) ...
+Setting up python3-iniconfig (1.1.1-2) ...
+Setting up python3-py (1.11.0-1) ...
+Setting up python3-jdcal (1.0-1.3) ...
+Setting up python3-defusedxml (0.7.1-2) ...
+Setting up python3-pandas-lib:arm64 (1.5.3+dfsg-2) ...
+Setting up libaec0:arm64 (1.0.6-1+b1) ...
+Setting up python3-pandas (1.5.3+dfsg-2) ...
+Setting up python-odf-doc (1.4.2-2) ...
+Setting up python3-bottleneck (1.3.5+ds1-2+b1) ...
+Setting up python3-numexpr (2.8.4-1+b2) ...
+Setting up python3-pluggy (1.0.0+repack-1) ...
+Setting up libblosc1:arm64 (1.21.3+ds-1) ...
+Setting up python3-et-xmlfile (1.0.1-2.1) ...
+Setting up python-tables-data (3.7.0-5) ...
+Setting up libsz2:arm64 (1.0.6-1+b1) ...
+Setting up python3-odf (1.4.2-2) ...
+Setting up python3-pytest (7.2.1-2) ...
+Setting up python-odf-tools (1.4.2-2) ...
+Setting up python3-openpyxl (3.0.9-1) ...
+Setting up libhdf5-103-1:arm64 (1.10.8+repack1-1) ...
+Setting up python3-tables-lib (3.7.0-5+b1) ...
+Setting up python3-tables (3.7.0-5) ...
+Processing triggers for libc-bin (2.36-9+rpt2+deb12u4) ...
+Processing triggers for man-db (2.11.2-2) ...
+manch@manch:~ $ sudo apt install python3-libopenblas-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package python3-libopenblas-dev
+manch@manch:~ $ sudo apt install python3-libopenblas-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package python3-libopenblas-dev
+manch@manch:~ $ sudo apt install libopenblas-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+libopenblas-dev is already the newest version (0.3.21+ds-4).
+libopenblas-dev set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 97 not upgraded.
+manch@manch:~ $ sudo apt install libatlas-base-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libatlas3-base
+Suggested packages:
+  libatlas-doc liblapack-doc
+The following NEW packages will be installed:
+  libatlas-base-dev libatlas3-base
+0 upgraded, 2 newly installed, 0 to remove and 97 not upgraded.
+Need to get 5,192 kB of archives.
+After this operation, 30.4 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://deb.debian.org/debian bookworm/main arm64 libatlas3-base arm64 3.10.3-13 [2,537 kB]
+Get:2 http://deb.debian.org/debian bookworm/main arm64 libatlas-base-dev arm64 3.10.3-13 [2,655 kB]
+Fetched 5,192 kB in 1s (6,123 kB/s)      
+Selecting previously unselected package libatlas3-base:arm64.
+(Reading database ... 159522 files and directories currently installed.)
+Preparing to unpack .../libatlas3-base_3.10.3-13_arm64.deb ...
+Unpacking libatlas3-base:arm64 (3.10.3-13) ...
+Selecting previously unselected package libatlas-base-dev:arm64.
+Preparing to unpack .../libatlas-base-dev_3.10.3-13_arm64.deb ...
+Unpacking libatlas-base-dev:arm64 (3.10.3-13) ...
+Setting up libatlas3-base:arm64 (3.10.3-13) ...
+Setting up libatlas-base-dev:arm64 (3.10.3-13) ...
+Processing triggers for libc-bin (2.36-9+rpt2+deb12u4) ...
+manch@manch:~ $ sudo apt install -U numpy
+E: Command line option 'U' [from -U] is not understood in combination with the other options.
+manch@manch:~ $ sudo pip  install -U numpy
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+manch@manch:~ $ sudo pip  install -U numpy --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Requirement already satisfied: numpy in /usr/lib/python3/dist-packages (1.24.2)
+Collecting numpy
+  Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 3.6 MB/s eta 0:00:00
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.24.2
+    Not uninstalling numpy at /usr/lib/python3/dist-packages, outside environment /usr
+    Can't uninstall 'numpy'. No files were found to uninstall.
+Successfully installed numpy-1.26.4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+manch@manch:~ $ sudo pip  install --only-binary :all: -U scikit-learn --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting scikit-learn
+  Downloading scikit_learn-1.4.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (11.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.5/11.5 MB 4.2 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.19.5 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.26.4)
+Requirement already satisfied: scipy>=1.6.0 in /usr/lib/python3/dist-packages (from scikit-learn) (1.10.1)
+Collecting joblib>=1.2.0
+  Downloading https://www.piwheels.org/simple/joblib/joblib-1.4.2-py3-none-any.whl (301 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 301.8/301.8 kB 610.2 kB/s eta 0:00:00
+Collecting threadpoolctl>=2.0.0
+  Downloading https://www.piwheels.org/simple/threadpoolctl/threadpoolctl-3.5.0-py3-none-any.whl (18 kB)
+Installing collected packages: threadpoolctl, joblib, scikit-learn
+Successfully installed joblib-1.4.2 scikit-learn-1.4.2 threadpoolctl-3.5.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+manch@manch:~ $ sudo pip install -U tensorflow
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+manch@manch:~ $ sudo pip install -U tensorflow --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting tensorflow
+  Downloading tensorflow-2.16.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (218.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 218.9/218.9 MB ? eta 0:00:00
+Collecting absl-py>=1.0.0
+  Downloading https://www.piwheels.org/simple/absl-py/absl_py-2.1.0-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.7/133.7 kB 523.8 kB/s eta 0:00:00
+Collecting astunparse>=1.6.0
+  Downloading https://www.piwheels.org/simple/astunparse/astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Collecting flatbuffers>=23.5.26
+  Downloading https://www.piwheels.org/simple/flatbuffers/flatbuffers-20181003210633-py2.py3-none-any.whl (14 kB)
+Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1
+  Downloading https://www.piwheels.org/simple/gast/gast-0.5.4-py3-none-any.whl (19 kB)
+Collecting google-pasta>=0.1.1
+  Downloading https://www.piwheels.org/simple/google-pasta/google_pasta-0.2.0-py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 kB 421.0 kB/s eta 0:00:00
+Collecting h5py>=3.10.0
+  Downloading h5py-3.11.0.tar.gz (406 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 406.5/406.5 kB 4.1 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting libclang>=13.0.0
+  Downloading libclang-18.1.1-py2.py3-none-manylinux2014_aarch64.whl (23.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.8/23.8 MB ? eta 0:00:00
+Collecting ml-dtypes~=0.3.1
+  Downloading ml_dtypes-0.3.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 1.3 MB/s eta 0:00:00
+Collecting opt-einsum>=2.3.2
+  Downloading https://www.piwheels.org/simple/opt-einsum/opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 445.8 kB/s eta 0:00:00
+Requirement already satisfied: packaging in /usr/lib/python3/dist-packages (from tensorflow) (23.0)
+Collecting protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3
+  Downloading protobuf-4.25.3-cp37-abi3-manylinux2014_aarch64.whl (293 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 293.7/293.7 kB 3.1 MB/s eta 0:00:00
+Requirement already satisfied: requests<3,>=2.21.0 in /usr/lib/python3/dist-packages (from tensorflow) (2.28.1)
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from tensorflow) (66.1.1)
+Requirement already satisfied: six>=1.12.0 in /usr/lib/python3/dist-packages (from tensorflow) (1.16.0)
+Collecting termcolor>=1.1.0
+  Downloading https://www.piwheels.org/simple/termcolor/termcolor-2.4.0-py3-none-any.whl (7.7 kB)
+Requirement already satisfied: typing-extensions>=3.6.6 in /usr/lib/python3/dist-packages (from tensorflow) (4.4.0)
+Requirement already satisfied: wrapt>=1.11.0 in /usr/lib/python3/dist-packages (from tensorflow) (1.14.1)
+Collecting grpcio<2.0,>=1.24.3
+  Downloading grpcio-1.63.0-cp311-cp311-manylinux_2_17_aarch64.whl (5.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 4.2 MB/s eta 0:00:00
+Collecting tensorboard<2.17,>=2.16
+  Downloading tensorboard-2.16.2-py3-none-any.whl (5.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 2.7 MB/s eta 0:00:00
+Collecting keras>=3.0.0
+  Downloading https://www.piwheels.org/simple/keras/keras-3.3.3-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 1.2 MB/s eta 0:00:00
+Collecting tensorflow-io-gcs-filesystem>=0.23.1
+  Downloading tensorflow_io_gcs_filesystem-0.37.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 4.0 MB/s eta 0:00:00
+Requirement already satisfied: numpy<2.0.0,>=1.23.5 in /usr/local/lib/python3.11/dist-packages (from tensorflow) (1.26.4)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /usr/lib/python3/dist-packages (from astunparse>=1.6.0->tensorflow) (0.38.4)
+Collecting rich
+  Downloading https://www.piwheels.org/simple/rich/rich-13.7.1-py3-none-any.whl (240 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 240.7/240.7 kB 748.8 kB/s eta 0:00:00
+Collecting namex
+  Downloading https://www.piwheels.org/simple/namex/namex-0.0.8-py3-none-any.whl (5.8 kB)
+Collecting optree
+  Downloading optree-0.11.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (285 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 285.8/285.8 kB 2.3 MB/s eta 0:00:00
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))': /simple/markdown/
+Collecting markdown>=2.6.8
+  Downloading https://www.piwheels.org/simple/markdown/Markdown-3.6-py3-none-any.whl (105 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 105.4/105.4 kB 444.9 kB/s eta 0:00:00
+Collecting tensorboard-data-server<0.8.0,>=0.7.0
+  Downloading tensorboard_data_server-0.7.2-py3-none-any.whl (2.4 kB)
+Requirement already satisfied: werkzeug>=1.0.1 in /usr/lib/python3/dist-packages (from tensorboard<2.17,>=2.16->tensorflow) (2.2.2)
+Collecting markdown-it-py>=2.2.0
+  Downloading https://www.piwheels.org/simple/markdown-it-py/markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 340.3 kB/s eta 0:00:00
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/lib/python3/dist-packages (from rich->keras>=3.0.0->tensorflow) (2.14.0)
+Collecting mdurl~=0.1
+  Downloading https://www.piwheels.org/simple/mdurl/mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Building wheels for collected packages: h5py
+  Building wheel for h5py (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for h5py (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [75 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build
+      creating build/lib.linux-aarch64-cpython-311
+      creating build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/h5py_warnings.py -> build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/ipy_completer.py -> build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/version.py -> build/lib.linux-aarch64-cpython-311/h5py
+      creating build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/base.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/files.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/selections2.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/datatype.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/attrs.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/dims.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/compat.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/selections.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/filters.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/vds.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/dataset.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/group.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      creating build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_attribute_create.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5d_direct_chunk.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dataset_getitem.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/conftest.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5o.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/common.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_group.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5z.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file2.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_filters.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_slicing.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file_image.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dataset_swmr.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5t.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5pl.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_attrs.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file_alignment.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dims_dimensionproxy.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dataset.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_datatype.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dtype.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_attrs_data.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dimension_scales.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_completions.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5f.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_errors.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5p.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_objects.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_ros3.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_selections.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_big_endian_file.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_base.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      creating build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      copying h5py/tests/data_files/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      creating build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_lowlevel_vds.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_virtual_source.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_highlevel_vds.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/data_files/vlen_string_s390x.h5 -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_dset_utc.h5 -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_dset.h5 -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      running build_ext
+      Loading library to get build settings and version: libhdf5.so
+      error: Unable to load dependency HDF5, make sure HDF5 is installed properly
+      Library dirs checked: []
+      error: libhdf5.so: cannot open shared object file: No such file or directory
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for h5py
+Failed to build h5py
+ERROR: Could not build wheels for h5py, which is required to install pyproject.toml-based projects
+manch@manch:~ $ sudo pip install -U keras==2.3.1 --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting keras==2.3.1
+  Downloading https://www.piwheels.org/simple/keras/Keras-2.3.1-py2.py3-none-any.whl (377 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 377.8/377.8 kB 892.9 kB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.9.1 in /usr/local/lib/python3.11/dist-packages (from keras==2.3.1) (1.26.4)
+Requirement already satisfied: scipy>=0.14 in /usr/lib/python3/dist-packages (from keras==2.3.1) (1.10.1)
+Requirement already satisfied: six>=1.9.0 in /usr/lib/python3/dist-packages (from keras==2.3.1) (1.16.0)
+Collecting pyyaml
+  Downloading PyYAML-6.0.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (732 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 732.2/732.2 kB 3.1 MB/s eta 0:00:00
+Collecting h5py
+  Using cached h5py-3.11.0.tar.gz (406 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting keras-applications>=1.0.6
+  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))': /simple/keras-applications/Keras_Applications-1.0.8-py3-none-any.whl
+  Downloading https://www.piwheels.org/simple/keras-applications/Keras_Applications-1.0.8-py3-none-any.whl (50 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.7/50.7 kB 214.1 kB/s eta 0:00:00
+Collecting keras-preprocessing>=1.0.5
+  Downloading https://www.piwheels.org/simple/keras-preprocessing/Keras_Preprocessing-1.1.2-py2.py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.6/42.6 kB 1.1 MB/s eta 0:00:00
+Building wheels for collected packages: h5py
+  Building wheel for h5py (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for h5py (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [75 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build
+      creating build/lib.linux-aarch64-cpython-311
+      creating build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/h5py_warnings.py -> build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/ipy_completer.py -> build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py
+      copying h5py/version.py -> build/lib.linux-aarch64-cpython-311/h5py
+      creating build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/base.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/files.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/selections2.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/datatype.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/attrs.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/dims.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/compat.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/selections.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/filters.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/vds.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/dataset.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      copying h5py/_hl/group.py -> build/lib.linux-aarch64-cpython-311/h5py/_hl
+      creating build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_attribute_create.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5d_direct_chunk.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dataset_getitem.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/conftest.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5o.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/common.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_group.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5z.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file2.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_filters.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_slicing.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file_image.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dataset_swmr.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5t.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5pl.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_attrs.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file_alignment.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dims_dimensionproxy.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dataset.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_datatype.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_file.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dtype.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_attrs_data.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_dimension_scales.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_completions.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5f.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_errors.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5p.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_objects.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_ros3.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_selections.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_h5.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_big_endian_file.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      copying h5py/tests/test_base.py -> build/lib.linux-aarch64-cpython-311/h5py/tests
+      creating build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      copying h5py/tests/data_files/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      creating build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_lowlevel_vds.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/__init__.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_virtual_source.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/test_vds/test_highlevel_vds.py -> build/lib.linux-aarch64-cpython-311/h5py/tests/test_vds
+      copying h5py/tests/data_files/vlen_string_s390x.h5 -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_dset_utc.h5 -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      copying h5py/tests/data_files/vlen_string_dset.h5 -> build/lib.linux-aarch64-cpython-311/h5py/tests/data_files
+      running build_ext
+      Loading library to get build settings and version: libhdf5.so
+      error: Unable to load dependency HDF5, make sure HDF5 is installed properly
+      Library dirs checked: []
+      error: libhdf5.so: cannot open shared object file: No such file or directory
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for h5py
+Failed to build h5py
+ERROR: Could not build wheels for h5py, which is required to install pyproject.toml-based projects
+manch@manch:~ $ ip
+Usage: ip [ OPTIONS ] OBJECT { COMMAND | help }
+       ip [ -force ] -batch filename
+where  OBJECT := { address | addrlabel | amt | fou | help | ila | ioam | l2tp |
+                   link | macsec | maddress | monitor | mptcp | mroute | mrule |
+                   neighbor | neighbour | netconf | netns | nexthop | ntable |
+                   ntbl | route | rule | sr | tap | tcpmetrics |
+                   token | tunnel | tuntap | vrf | xfrm }
+       OPTIONS := { -V[ersion] | -s[tatistics] | -d[etails] | -r[esolve] |
+                    -h[uman-readable] | -iec | -j[son] | -p[retty] |
+                    -f[amily] { inet | inet6 | mpls | bridge | link } |
+                    -4 | -6 | -M | -B | -0 |
+                    -l[oops] { maximum-addr-flush-attempts } | -br[ief] |
+                    -o[neline] | -t[imestamp] | -ts[hort] | -b[atch] [filename] |
+                    -rc[vbuf] [size] | -n[etns] name | -N[umeric] | -a[ll] |
+                    -c[olor]}
+manch@manch:~ $ ipaddress
+bash: ipaddress: command not found
+manch@manch:~ $ ip address
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether b8:27:eb:65:4b:dc brd ff:ff:ff:ff:ff:ff
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:27:eb:30:1e:89 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.197/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 81461sec preferred_lft 81461sec
+    inet6 fe80::a70d:5e7f:e0b0:adda/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+manch@manch:~ $ ipconfig
+bash: ipconfig: command not found
+manch@manch:~ $ sudo apt install x11-apps
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libxcb-damage0 xbitmaps
+Suggested packages:
+  mesa-utils
+The following NEW packages will be installed:
+  libxcb-damage0 x11-apps xbitmaps
+0 upgraded, 3 newly installed, 0 to remove and 97 not upgraded.
+Need to get 749 kB of archives.
+After this operation, 2,780 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://deb.debian.org/debian bookworm/main arm64 libxcb-damage0 arm64 1.15-1 [105 kB]
+Get:2 http://deb.debian.org/debian bookworm/main arm64 x11-apps arm64 7.7+9 [619 kB]
+Get:3 http://deb.debian.org/debian bookworm/main arm64 xbitmaps all 1.1.1-2.2 [25.1 kB]
+Fetched 749 kB in 0s (2,235 kB/s)    
+Selecting previously unselected package libxcb-damage0:arm64.
+(Reading database ... 159720 files and directories currently installed.)
+Preparing to unpack .../libxcb-damage0_1.15-1_arm64.deb ...
+Unpacking libxcb-damage0:arm64 (1.15-1) ...
+Selecting previously unselected package x11-apps.
+Preparing to unpack .../x11-apps_7.7+9_arm64.deb ...
+Unpacking x11-apps (7.7+9) ...
+Selecting previously unselected package xbitmaps.
+Preparing to unpack .../xbitmaps_1.1.1-2.2_all.deb ...
+Unpacking xbitmaps (1.1.1-2.2) ...
+Setting up xbitmaps (1.1.1-2.2) ...
+Setting up libxcb-damage0:arm64 (1.15-1) ...
+Setting up x11-apps (7.7+9) ...
+Processing triggers for libc-bin (2.36-9+rpt2+deb12u4) ...
+Processing triggers for man-db (2.11.2-2) ...
+manch@manch:~ $ ico
+manch@manch:~ $ oclock
+xcalc
+
+^C
+manch@manch:~ $ xcalc
+Warning: Cannot convert string "8x13" to type FontStruct
+Warning: Missing charsets in String to FontSet conversion
+manch@manch:~ $ xclock
+Warning: Missing charsets in String to FontSet conversion
+manch@manch:~ $ xeyes
+manch@manch:~ $ xgc
+Warning: Missing charsets in String to FontSet conversion
+manch@manch:~ $ xlogo
+manch@manch:~ $ xman
+Warning: Missing charsets in String to FontSet conversion
+manch@manch:~ $ python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> 
+[1]+  Stopped                 python3
+manch@manch:~ $ raspi config
+bash: raspi: command not found
+manch@manch:~ $ sudo raspi-config
+manch@manch:~ $ > lab8_output.txt
+manch@manch:~ $ ^C
+manch@manch:~ $ lProcessing triggers for man-db (2.11.2-2) ...
+Processing triggers for libc-bin (2.36-9+rpt2+deb12u4) ...
+manch@manch:~ $ sudo apt install python3-matplotlib
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  fonts-lyx isympy-common isympy3 libjs-jquery-ui libqhull-r8.0
+  python-matplotlib-data python3-appdirs python3-attr python3-brotli
+  python3-contourpy python3-cycler python3-dateutil python3-fonttools
+  python3-fs python3-kiwisolver python3-lz4 python3-mpmath python3-packaging
+  python3-pil.imagetk python3-pyparsing python3-sympy python3-ufolib2
+  unicode-data
+Suggested packages:
+  libjs-jquery-ui-docs python-attr-doc python-cycler-doc cm-super-minimal
+  dvipng fonts-staypuft inkscape ipython3 python3-cairocffi python3-gobject
+  python3-sip python3-tornado texlive-extra-utils texlive-latex-extra
+  python-mpmath-doc python3-gmpy2 python-pil-doc python-pyparsing-doc
+  texlive-fonts-extra python-sympy-doc
+The following NEW packages will be installed:
+  fonts-lyx isympy-common isympy3 libjs-jquery-ui libqhull-r8.0
+  python-matplotlib-data python3-appdirs python3-attr python3-brotli
+  python3-contourpy python3-cycler python3-dateutil python3-fonttools
+  python3-fs python3-kiwisolver python3-lz4 python3-matplotlib python3-mpmath
+^Cnch@manch:~ $ ^Clab8_output.txthon3r "license" for more information..)1-2.2 [2
+manch@manch:~ $ cd iot/*8
+manch@manch:~/iot/lesson8 $ python scatter_demo.py
+Matplotlib is building the font cache; this may take a moment.
+manch@manch:~/iot/lesson8 $ python histogram_demo_features.py
+manch@manch:~/iot/lesson8 $ python pyplot_text.py
+manch@manch:~/iot/lesson8 $ python histogram_demo_extended.py
+manch@manch:~/iot/lesson8 $ python boxplot_demo.py
+manch@manch:~/iot/lesson8 $ python linreg.py
+manch@manch:~/iot/lesson8 $ python interpolation.py
+manch@manch:~/iot/lesson8 $ python plot_lda.py
+^[[A^[[A^[[B^[[B^[[B^[[A^[[A^[[A^CTraceback (most recent call last):
+  File "/home/manch/iot/lesson8/plot_lda.py", line 46, in <module>
+    X, y = generate_data(n_train, n_features)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/manch/iot/lesson8/plot_lda.py", line 34, in generate_data
+    X, y = make_blobs(n_samples=n_samples, n_features=1, centers=[[-2], [2]])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/sklearn/datasets/_samples_generator.py", line 1065, in make_blobs
+    cum_sum_n_samples = np.cumsum(n_samples_per_center)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/numpy/core/fromnumeric.py", line 2512, in cumsum
+    @array_function_dispatch(_cumsum_dispatcher)
+    
+KeyboardInterrupt
+
+manch@manch:~/iot/lesson8 $ python plot_lda_qda.py
+
+====================================================================
+Linear and Quadratic Discriminant Analysis with confidence ellipsoid
+====================================================================
+
+Plot the confidence ellipsoids of each class and decision boundary
+
+2
+3
+/home/manch/iot/lesson8/plot_lda_qda.py:112: MatplotlibDeprecationWarning: Passing the angle parameter of __init__() positionally is deprecated since Matplotlib 3.6; the parameter will become keyword-only two minor releases later.
+  ell = mpl.patches.Ellipse(mean, 2 * v[0] ** 0.5, 2 * v[1] ** 0.5,
+/home/manch/iot/lesson8/plot_lda_qda.py:112: MatplotlibDeprecationWarning: Passing the angle parameter of __init__() positionally is deprecated since Matplotlib 3.6; the parameter will become keyword-only two minor releases later.
+  ell = mpl.patches.Ellipse(mean, 2 * v[0] ** 0.5, 2 * v[1] ** 0.5,
+/home/manch/iot/lesson8/plot_lda_qda.py:112: MatplotlibDeprecationWarning: Passing the angle parameter of __init__() positionally is deprecated since Matplotlib 3.6; the parameter will become keyword-only two minor releases later.
+  ell = mpl.patches.Ellipse(mean, 2 * v[0] ** 0.5, 2 * v[1] ** 0.5,
+/home/manch/iot/lesson8/plot_lda_qda.py:112: MatplotlibDeprecationWarning: Passing the angle parameter of __init__() positionally is deprecated since Matplotlib 3.6; the parameter will become keyword-only two minor releases later.
+  ell = mpl.patches.Ellipse(mean, 2 * v[0] ** 0.5, 2 * v[1] ** 0.5,
+manch@manch:~/iot/lesson8 $ 2
+bash: 2: command not found
+manch@manch:~/iot/lesson8 $ 3
+bash: 3: command not found
+manch@manch:~/iot/lesson8 $ python plot_cv_predict.py
+manch@manch:~/iot/lesson8 $ python plot_cv_diabetes.py
+Number of instances: 442
+manch@manch:~/iot/lesson8 $ python traffic.py
+[[24  2]
+ [ 3 38]]
+              precision    recall  f1-score   support
+
+           0       0.89      0.92      0.91        26
+           1       0.95      0.93      0.94        41
+
+    accuracy                           0.93        67
+   macro avg       0.92      0.92      0.92        67
+weighted avg       0.93      0.93      0.93        67
+
+manch@manch:~/iot/lesson8 $ 
+manch@manch:~ $ git
+^C
+manch@manch:~ $ gut --help\
+> gut --help\^C
+manch@manch:~ $ gut --help
+^[[A     
+bash: gut: command not found
+manch@manch:~ $ gut --help
+bash: gut: command not found
+manch@manch:~ $ ^C
+manch@manch:~ $ 
+manch@manch:~ $ git --help
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+manch@manch:~ $ git clone https://github.com/cmanche/cpe-322/tree/main/labs.git
+Cloning into 'labs'...
+fatal: repository 'https://github.com/cmanche/cpe-322/tree/main/labs.git/' not found
+manch@manch:~ $ ping github.com
+PING github.com (140.82.112.4) 56(84) bytes of data.
+64 bytes from lb-140-82-112-4-iad.github.com (140.82.112.4): icmp_seq=1 ttl=244 time=13.5 ms
+64 bytes from lb-140-82-112-4-iad.github.com (140.82.112.4): icmp_seq=2 ttl=244 time=24.0 ms
+64 bytes from lb-140-82-112-4-iad.github.com (140.82.112.4): icmp_seq=3 ttl=244 time=12.8 ms
+64 bytes from lb-140-82-112-4-iad.github.com (140.82.112.4): icmp_seq=4 ttl=244 time=12.4 ms
+64 bytes from lb-140-82-112-4-iad.github.com (140.82.112.4): icmp_seq=5 ttl=244 time=9.27 ms
+^C
+--- github.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 9.269/14.393/24.001/5.018 ms
+manch@manch:~ $ git pull https://github.com/cmanche/cpe-322/tree/main/labs.git
+fatal: not a git repository (or any of the parent directories): .git
+manch@manch:~ $ cd iot/lesson8
+manch@manch:~/iot/lesson8 $ train.csv
+bash: train.csv: command not found
+manch@manch:~/iot/lesson8 $ cp train.csv
+cp: missing destination file operand after 'train.csv'
+Try 'cp --help' for more information.
+manch@manch:~/iot/lesson8 $ 
+
