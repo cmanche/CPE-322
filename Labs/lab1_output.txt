@@ -1,0 +1,208 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\chris> git clone https://github.com/kevinwlu/dsd.git
+Cloning into 'dsd'...
+remote: Enumerating objects: 11390, done.
+remote: Counting objects: 100% (2095/2095), done.
+remote: Compressing objects: 100% (655/655), done.
+remote: Total 11390 (delta 1080), reused 1987 (delta 1020), pack-reused 9295
+Receiving objects: 100% (11390/11390), 40.26 MiB | 13.77 MiB/s, done.
+Resolving deltas: 100% (7046/7046), done.
+PS C:\Users\chris> mkdir vhdl
+
+
+    Directory: C:\Users\chris
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          5/6/2024  12:15 AM                vhdl
+
+
+PS C:\Users\chris> cd vhdl
+PS C:\Users\chris\vhdl> cp ~/dsd/ghdl/*vhdl .
+PS C:\Users\chris\vhdl> ghdl -h
+usage: C:\eda\ghdl\bin\ghdl.exe COMMAND [OPTIONS] ...
+COMMAND is one of:
+analyze [OPTS] FILEs
+  Analyze one or multiple VHDL files
+  aliases: -a, analyse
+elaborate [OPTS] UNIT [ARCH]
+  Elaborate design UNIT
+  alias: -e
+elab-run [OPTS] UNIT [ARCH] [RUNOPTS]
+  Elaborate and run design UNIT
+  aliases: --elab-run, -r, run
+compile [OPTS] FILEs -e|-r UNIT [ARCH] [RUNOPTS]
+  Compile, elaborate (and run) design UNIT
+  alias: -c
+make [OPTS] UNIT [ARCH]
+  Make design UNIT
+  alias: -m
+gen-makefile [OPTS] UNIT [ARCH]
+  Generate a Makefile for UNIT
+  alias: --gen-makefile
+disp-config
+  Display tools path
+  aliases: --disp-config, dispconfig, --dispconfig
+run-help
+  Display help for RUNOPTS options
+  alias: --run-help
+import [OPTS] FILEs
+  Import units of FILEs
+  alias: -i
+syntax [OPTS] FILEs
+  Check syntax of FILEs
+  alias: -s
+dir [LIBs]
+  Display contents of the libraries
+  alias: --dir
+files FILEs
+  Display units in FILES
+  alias: -f
+clean
+  Remove generated files
+  alias: --clean
+remove
+  Remove generated files and library file
+  alias: --remove
+copy
+  Copy work library to current directory
+  alias: --copy
+disp-standard
+  Disp std.standard in pseudo-vhdl
+  alias: --disp-standard
+elab-order [--libraries] [OPTS] UNIT [ARCH]
+  Display ordered source files
+  alias: --elab-order
+find-top
+  Display possible top entity in work library
+  alias: --find-top
+chop [OPTS] FILEs
+  Chop FILEs
+  alias: --chop
+lines FILEs
+  Precede line with its number
+  alias: --lines
+reprint [OPTS] FILEs
+  Redisplay FILEs
+  alias: --reprint
+fmt [OPTS] FILEs
+  Format FILEs
+  alias: --format
+compare-tokens [OPTS] REF FILEs
+  Compare FILEs with REF
+  alias: --compare-tokens
+pp-html FILEs
+  Pretty-print FILEs in HTML
+  alias: --pp-html
+xref-html FILEs
+  Display FILEs in HTML with xrefs
+  alias: --xref-html
+xref FILEs
+  Generate xrefs
+  alias: --xref
+--vpi-compile CMD ARGS
+  Compile with VPI/VHPI include path
+--vpi-link CMD ARGS
+  Link with VPI/VHPI library
+--vpi-cflags
+  Display VPI/VHPI compile flags
+--vpi-ldflags
+  Display VPI/VHPI link flags
+--vpi-include-dir
+  Display VPI/VHPI include directory
+--vpi-library-dir
+  Display VPI/VHPI library directory
+--vpi-library-dir-unix
+  Display VPI/VHPI library directory (unix form)
+file-to-xml FILEs
+  Dump AST in XML
+  alias: --file-to-xml
+synth [FILES... -e] UNIT [ARCH]
+  Synthesis from UNIT
+  alias: --synth
+--libghdl-name
+  Display libghdl name
+--libghdl-library-path
+  Display libghdl library path
+--libghdl-include-dir
+  Display libghdl include directory
+help [CMD]
+  Display this help or [help on CMD]
+  aliases: -h, --help
+version
+  Display ghdl version
+  aliases: -v, --version
+opts-help
+  Display help for analyzer options
+  alias: --options-help
+
+To display the options of a GHDL program,
+  run your program with the 'help' option.
+Also see 'opts-help' for analyzer options.
+
+Please, refer to the GHDL manual for more information.
+Report issues on https://github.com/ghdl/ghdl
+PS C:\Users\chris\vhdl> ghdl -v
+GHDL 3.0.0 (2.0.0.r1417.g7de967c51) [Dunoon edition]
+ Compiled with GNAT Version: 12.2.0
+ mcode code generator
+Written by Tristan Gingold.
+
+Copyright (C) 2003 - 2023 Tristan Gingold.
+GHDL is free software, covered by the GNU General Public License.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+PS C:\Users\chris\vhdl> ghdl -a hello.vhdl
+PS C:\Users\chris\vhdl> ghdl -e hello_world
+PS C:\Users\chris\vhdl> ghdl -r hello_world
+Hello world!
+PS C:\Users\chris\vhdl> hdl -a ha.vhdl
+hdl : The term 'hdl' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct
+and try again.
+At line:1 char:1
++ hdl -a ha.vhdl
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (hdl:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\chris\vhdl> ghdl -a ha.vhdl
+PS C:\Users\chris\vhdl> ghdl -a ha_tb.vhdl
+PS C:\Users\chris\vhdl> ghdl -e ha_tb
+PS C:\Users\chris\vhdl> ghdl -r ha_tb --vcd=ha.vcd
+ha_tb.vhdl:47:5:@5ns:(assertion error): Reached end of test
+PS C:\Users\chris\vhdl> gtkwave ha.vcd
+gtkwave : The term 'gtkwave' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is
+correct and try again.
+At line:1 char:1
++ gtkwave ha.vcd
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (gtkwave:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\chris\vhdl> gtkwave ha.vcd
+gtkwave : The term 'gtkwave' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is
+correct and try again.
+At line:1 char:1
++ gtkwave ha.vcd
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (gtkwave:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\chris\vhdl> gtkwave64 ha.vcd
+gtkwave64 : The term 'gtkwave64' is not recognized as the name of a cmdlet, function, script file,
+or operable program. Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+At line:1 char:1
++ gtkwave64 ha.vcd
++ ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (gtkwave64:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\chris\vhdl>
