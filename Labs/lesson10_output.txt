@@ -1,0 +1,681 @@
+manch@manch:~ $ cd iot/lesson10
+manch@manch:~/iot/lesson10 $ cat hash_value..py
+cat: hash_value..py: No such file or directory
+manch@manch:~/iot/lesson10 $ cat hash_value.py
+"""
+https://docs.python.org/3/using/cmdline.html#envvar-PYTHONHASHSEED
+If PYTHONHASHSEED is not set or set to random, a random value is used to to seed the hashes of str and bytes objects.
+If PYTHONHASHSEED is set to an integer value, it is used as a fixed seed for generating the hash() of the types covered by the hash randomization.
+Its purpose is to allow repeatable hashing, such as for selftests for the interpreter itself, or to allow a cluster of python processes to share hash values.
+The integer must be a decimal number in the range [0,4294967295]. Specifying the value 0 will disable hash randomization.
+
+https://www.programiz.com/python-programming/methods/built-in/hash
+hash(object) returns the hash value of the object (if it has one). Hash values are integers.
+They are used to quickly compare dictionary keys during a dictionary lookup.
+Numeric values that compare equal have the same hash value even if they are of different types, as is the case for 1 and 1.0.
+For objects with custom __hash__() methods, note that hash() truncates the return value based on the bit width of the host machine.
+"""
+
+# hash for integer unchanged
+print('The hash for 1 is:', hash(1))
+
+# hash for decimal
+print('The hash for 1.0 is:',hash(1.0))
+print('The hash for 3.14 is:',hash(3.14))
+
+# hash for string
+print('The hash for Python is:', hash('Python'))
+
+# hash for a tuple of vowels
+vowels = ('a', 'e', 'i', 'o', 'u')
+print('The hash for a tuple of vowels is:', hash(vowels))
+
+# hash for a custom object
+class Person:
+    def __init__(self, age, name):
+        self.age = age
+        self.name = name
+    def __eq__(self, other):
+        return self.age == other.age and self.name == other.name
+    def __hash__(self):
+        return hash((self.age, self.name))
+person = Person(23, 'Adam')
+print('The hash for an object of person is:', hash(person))
+manch@manch:~/iot/lesson10 $ python hash_value.py
+The hash for 1 is: 1
+The hash for 1.0 is: 1
+The hash for 3.14 is: 322818021289917443
+The hash for Python is: -4127850791110830772
+The hash for a tuple of vowels is: -6537682326000869553
+The hash for an object of person is: 3857590383361949225
+manch@manch:~/iot/lesson10 $ python hash_value.py
+The hash for 1 is: 1
+The hash for 1.0 is: 1
+The hash for 3.14 is: 322818021289917443
+The hash for Python is: -7959136326233775493
+The hash for a tuple of vowels is: -7504448950113368639
+The hash for an object of person is: -6793046714296156669
+manch@manch:~/iot/lesson10 $ python
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import hashlib
+>>> m = hashlib.sha256(b"hello, world")
+>>> m.hexdigest()
+'09ca7e4eaa6e8ae9c7d261167129184883644d07dfba7cbfbc4c8a2e08360d5b'
+>>> m.digest_size
+32
+>>> m.block_size
+64
+>>> exit()
+manch@manch:~/iot/lesson10 $ cat snakecoin.py
+# Gerald Nash, "Let's build the tiniest blockchain in less than 50 lines of Python"
+import hashlib as hasher
+import datetime as date
+
+# Define what a Snakecoin block is
+class Block:
+  def __init__(self, index, timestamp, data, previous_hash):
+    self.index = index
+    self.timestamp = timestamp
+    self.data = data
+    self.previous_hash = previous_hash
+    self.hash = self.hash_block()
+  
+  def hash_block(self):
+    sha = hasher.sha256()
+    sha.update(str(self.index).encode() + str(self.timestamp).encode() + str(self.data).encode() + str(self.previous_hash).encode())
+    return sha.hexdigest()
+
+# Generate genesis block
+def create_genesis_block():
+  # Manually construct a block with
+  # index zero and arbitrary previous hash
+  return Block(0, date.datetime.now(), "Genesis Block", "0")
+
+# Generate all later blocks in the blockchain
+def next_block(last_block):
+  this_index = last_block.index + 1
+  this_timestamp = date.datetime.now()
+  this_data = "Hey! I'm block " + str(this_index)
+  this_hash = last_block.hash
+  return Block(this_index, this_timestamp, this_data, this_hash)
+
+# Create the blockchain and add the genesis block
+blockchain = [create_genesis_block()]
+previous_block = blockchain[0]
+
+# How many blocks should we add to the chain
+# after the genesis block
+num_of_blocks_to_add = 20
+
+# Add blocks to the chain
+for i in range(0, num_of_blocks_to_add):
+  block_to_add = next_block(previous_block)
+  blockchain.append(block_to_add)
+  previous_block = block_to_add
+  # Tell everyone about it!
+  print("Block #{} has been added to the blockchain!".format(block_to_add.index))
+  print("Hash: {}\n".format(block_to_add.hash))
+manch@manch:~/iot/lesson10 $ python snakecoin.py
+Block #1 has been added to the blockchain!
+Hash: dcc16023b0073a26fe04fc637e4d5d95d1ef414b18850a541f709202860178d9
+
+Block #2 has been added to the blockchain!
+Hash: ab9096e2b0d8391f321fbb08af0b31f69dc4298813b37db34e07ec8751c92e3f
+
+Block #3 has been added to the blockchain!
+Hash: cdd9c31396334d58847303f72738c3c6c03a2d6195e755caa8119cb30001a390
+
+Block #4 has been added to the blockchain!
+Hash: 4bf9123b74d15039cf86b261f0f3872c48ee346444195c2a36af5a07d99340bd
+
+Block #5 has been added to the blockchain!
+Hash: e339b9939c490c03a4daacf917c19f7fb01be86c90c1c3d3ea7d357cea9f4698
+
+Block #6 has been added to the blockchain!
+Hash: f968759c10316a8e465a3da34ff287f2aee756f1ccc83e94602ea5fa2ca6d27d
+
+Block #7 has been added to the blockchain!
+Hash: 77fbe24bc8a22051153236c1ced525e45f08d401f7f0c1fb35209b9b56110847
+
+Block #8 has been added to the blockchain!
+Hash: 5a75506b191dbfd0f6d5de3b077cf95fc86f179b739febcf4722164ef79e50f3
+
+Block #9 has been added to the blockchain!
+Hash: 8527e45f36075ed65f5ebf853b297a2340c8d7d962525484fba54ce86d0a9764
+
+Block #10 has been added to the blockchain!
+Hash: 1e5c06a049e5ce20016554d3ad4193fe2d730ad2c24bb529fe497b3c4eb46dc8
+
+Block #11 has been added to the blockchain!
+Hash: 2616eb0dc052bf3581208971a25f317129680738290703b16d1f1d535116bf0e
+
+Block #12 has been added to the blockchain!
+Hash: 94c766c3b561e3031e0dcf391af7ead93b53a447d09beb04d52835966e12c9b3
+
+Block #13 has been added to the blockchain!
+Hash: 9f500fb1075a6572b0e4beaebdacbfc32539a3681be06bea31f6a9e364a82e57
+
+Block #14 has been added to the blockchain!
+Hash: 6f3020d98a28868069830dd86ef52c8e57680b13b735d948b9dcd9943d8dbcd4
+
+Block #15 has been added to the blockchain!
+Hash: 5f3d3a37e2d31cd0bc7c3442fb5522443e51ad14e7ea784533d3d16d8c28c051
+
+Block #16 has been added to the blockchain!
+Hash: cf87c76122c3f2886b015bbe4a106c6d13987f6f90e1c6642e2c86d57159f082
+
+Block #17 has been added to the blockchain!
+Hash: fcd8da49f073d15e317d937638e6e800e5e35e6f20ad72006af2cf27ba8ef537
+
+Block #18 has been added to the blockchain!
+Hash: 9185b0a5b28a250d5985ebe41b563afeed35328a14ca5f9c73b1d9ede74bab9d
+
+Block #19 has been added to the blockchain!
+Hash: f3ec506990fb3cad331ad023eb64e3411f918b2df6238a984bbf70533af876c9
+
+Block #20 has been added to the blockchain!
+Hash: e17d8713cc41fd2c49b118dadec1c3936e8f17061e07da00517211ec0918093b
+
+manch@manch:~/iot/lesson10 $ cat snakecoin-server-full-code.py
+# Gerald Nash, "Let’s Make the Tiniest Blockchain Bigger Part 2: With More Lines of Python"
+# Referred to https://www.pythonanywhere.com/forums/topic/12382/ that fixed sha.update() TypeError: Unicode-objects must be encoded before hashing
+# Running on http://127.0.0.1:5000/mine (Reload the page to mine and press CTRL+C to quit)
+from flask import Flask
+from flask import request
+import json
+import requests
+import hashlib as hasher
+import datetime as date
+from flask import send_from_directory
+import os
+node = Flask(__name__)
+
+# Define what a Snakecoin block is
+class Block:
+  def __init__(self, index, timestamp, data, previous_hash):
+    self.index = index
+    self.timestamp = timestamp
+    self.data = data
+    self.previous_hash = previous_hash
+    self.hash = self.hash_block()
+  
+  def hash_block(self):
+    sha = hasher.sha256()
+#    sha.update(str(self.index) + str(self.timestamp) + str(self.data) + str(self.previous_hash))
+    sha.update((str(self.index) + str(self.timestamp) + str(self.data) + str(self.previous_hash)).encode("utf-8"))
+    return sha.hexdigest()
+
+# Generate genesis block
+def create_genesis_block():
+  # Manually construct a block with
+  # index zero and arbitrary previous hash
+  return Block(0, date.datetime.now(), {
+    "proof-of-work": 9,
+    "transactions": None
+  }, "0")
+
+# A completely random address of the owner of this node
+miner_address = "q3nf394hjg-random-miner-address-34nf3i4nflkn3oi"
+# This node's blockchain copy
+blockchain = []
+blockchain.append(create_genesis_block())
+# Store the transactions that
+# this node has in a list
+this_nodes_transactions = []
+# Store the url data of every
+# other node in the network
+# so that we can communicate
+# with them
+peer_nodes = []
+# A variable to deciding if we're mining or not
+mining = True
+
+@node.route("/")
+def hello():
+    return "SnakeCoin Server"
+
+@node.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(node.root_path, 'static'),
+                               'favicon.ico', 
+                               mimetype='image/vnd.microsoft.icon')
+
+@node.route('/txion', methods=['POST'])
+def transaction():
+  # On each new POST request,
+  # we extract the transaction data
+  new_txion = request.get_json()
+  # Then we add the transaction to our list
+  this_nodes_transactions.append(new_txion)
+  # Because the transaction was successfully
+  # submitted, we log it to our console
+  print("New transaction")
+  print(("FROM: {}".format(new_txion['from'].encode('ascii','replace'))))
+  print(("TO: {}".format(new_txion['to'].encode('ascii','replace'))))
+  print(("AMOUNT: {}\n".format(new_txion['amount'])))
+  # Then we let the client know it worked out
+  return "Transaction submission successful\n"
+
+@node.route('/blocks', methods=['GET'])
+def get_blocks():
+  chain_to_send = blockchain
+  # Convert our blocks into dictionaries
+  # so we can send them as json objects later
+  for i in range(len(chain_to_send)):
+    block = chain_to_send[i]
+    block_index = str(block.index)
+    block_timestamp = str(block.timestamp)
+    block_data = str(block.data)
+    block_hash = block.hash
+    chain_to_send[i] = {
+      "index": block_index,
+      "timestamp": block_timestamp,
+      "data": block_data,
+      "hash": block_hash
+    }
+  chain_to_send = json.dumps(chain_to_send)
+  return chain_to_send
+
+def find_new_chains():
+  # Get the blockchains of every
+  # other node
+  other_chains = []
+  for node_url in peer_nodes:
+    # Get their chains using a GET request
+    block = requests.get(node_url + "/blocks").content
+    # Convert the JSON object to a Python dictionary
+    block = json.loads(block)
+    # Add it to our list
+    other_chains.append(block)
+  return other_chains
+
+def consensus():
+  # Get the blocks from other nodes
+  other_chains = find_new_chains()
+  # If our chain isn't longest,
+  # then we store the longest chain
+  longest_chain = blockchain
+  for chain in other_chains:
+    if len(longest_chain) < len(chain):
+      longest_chain = chain
+  # If the longest chain isn't ours,
+  # then we stop mining and set
+  # our chain to the longest one
+  blockchain = longest_chain
+
+def proof_of_work(last_proof):
+  # Create a variable that we will use to find
+  # our next proof of work
+  incrementor = last_proof + 1
+  # Keep incrementing the incrementor until
+  # it's equal to a number divisible by 9
+  # and the proof of work of the previous
+  # block in the chain
+  while not (incrementor % 9 == 0 and incrementor % last_proof == 0):
+    incrementor += 1
+  # Once that number is found,
+  # we can return it as a proof
+  # of our work
+  return incrementor
+
+@node.route('/mine', methods = ['GET'])
+def mine():
+  # Get the last proof of work
+  last_block = blockchain[len(blockchain) - 1]
+  last_proof = last_block.data['proof-of-work']
+  # Find the proof of work for
+  # the current block being mined
+  # Note: The program will hang here until a new
+  #       proof of work is found
+  proof = proof_of_work(last_proof)
+  # Once we find a valid proof of work,
+  # we know we can mine a block so 
+  # we reward the miner by adding a transaction
+  this_nodes_transactions.append(
+    { "from": "network", "to": miner_address, "amount": 1 }
+  )
+  # Now we can gather the data needed
+  # to create the new block
+  new_block_data = {
+    "proof-of-work": proof,
+    "transactions": list(this_nodes_transactions)
+  }
+  new_block_index = last_block.index + 1
+  new_block_timestamp = this_timestamp = date.datetime.now()
+  last_block_hash = last_block.hash
+  # Empty transaction list
+  this_nodes_transactions[:] = []
+  # Now create the
+  # new block!
+  mined_block = Block(
+    new_block_index,
+    new_block_timestamp,
+    new_block_data,
+    last_block_hash
+  )
+  blockchain.append(mined_block)
+  # Let the client know we mined a block
+  return json.dumps({
+      "index": new_block_index,
+      "timestamp": str(new_block_timestamp),
+      "data": new_block_data,
+      "hash": last_block_hash
+  }) + "\n"
+
+node.run()
+manch@manch:~/iot/lesson10 $ python snakecoin-server-full-code.py
+ * Serving Flask app 'snakecoin-server-full-code'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+cd
+^Cmanch@manch:~/iot/lesson10 $ cd
+manch@manch:~ $ sudo pip install markupsafe==2.0.1
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+manch@manch:~ $ sudo pip install markupsafe==2.0.1 --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting markupsafe==2.0.1
+  Downloading MarkupSafe-2.0.1.tar.gz (18 kB)
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: markupsafe
+  Building wheel for markupsafe (setup.py) ... done
+  Created wheel for markupsafe: filename=MarkupSafe-2.0.1-cp311-cp311-linux_aarch64.whl size=27778 sha256=9e6360e2e7dce9174a35e56b6ae70dc6f49a41c55828e9b85088fd833e06b122
+  Stored in directory: /root/.cache/pip/wheels/ea/18/79/6266ea508b8164a77b95aa19534c77eb805f2878612c37efca
+Successfully built markupsafe
+Installing collected packages: markupsafe
+  Attempting uninstall: markupsafe
+    Found existing installation: MarkupSafe 2.1.2
+    Not uninstalling markupsafe at /usr/lib/python3/dist-packages, outside environment /usr
+    Can't uninstall 'MarkupSafe'. No files were found to uninstall.
+Successfully installed markupsafe-2.0.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+manch@manch:~ $ python snakecoin-server-full-code.py
+python: can't open file '/home/manch/snakecoin-server-full-code.py': [Errno 2] No such file or directory
+manch@manch:~ $ cd iot/*10
+manch@manch:~/iot/lesson10 $ python snakecoin-server-full-code.py
+ * Serving Flask app 'snakecoin-server-full-code'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+^Cmanch@manch:~/iot/lesson10 $ curl "localhost:5000/txion" \ -H "Content-Type: application/json" \ -d '{"from"; "akjflw", "to":"fjlakdj", "amount": 3}'
+curl: (7) Failed to connect to localhost port 5000 after 1 ms: Couldn't connect to server
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+manch@manch:~/iot/lesson10 $ curl "localhost:5000/txion" \ 
+curl: (7) Failed to connect to localhost port 5000 after 0 ms: Couldn't connect to server
+curl: (3) URL using bad/illegal format or missing URL
+manch@manch:~/iot/lesson10 $ python snakecoin-server-full-code.py
+ * Serving Flask app 'snakecoin-server-full-code'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+127.0.0.1 - - [06/May/2024 04:46:33] "GET /txion HTTP/1.1" 405 -
+127.0.0.1 - - [06/May/2024 04:46:52] "GET /mine HTTP/1.1" 200 -
+127.0.0.1 - - [06/May/2024 04:47:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/May/2024 04:47:09] "GET /favicon.ico HTTP/1.1" 200 -
+127.0.0.1 - - [06/May/2024 04:47:17] "GET /mine HTTP/1.1" 200 -
+manch@manch:~/iot/lesson10 $ git clone https://github.com/satwikkansal/python_blockchain_app.gitit
+Cloning into 'python_blockchain_app'...
+remote: Enumerating objects: 173, done.
+remote: Counting objects: 100% (72/72), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 173 (delta 52), reused 57 (delta 43), pack-reused 101
+Receiving objects: 100% (173/173), 229.99 KiB | 2.30 MiB/s, done.
+Resolving deltas: 100% (84/84), done.
+manch@manch:~/iot/lesson10 $ cd ~/python_blockchain_app
+bash: cd: /home/manch/python_blockchain_app: No such file or directory
+manch@manch:~/iot/lesson10 $ cd python_blockchain_app
+manch@manch:~/iot/lesson10/python_blockchain_app $ nano node_server.py
+manch@manch:~/iot/lesson10/python_blockchain_app $ python3 node_server.py
+manch@manch:~/iot/lesson10/python_blockchain_app $ 
+
+**********
+Terminal 2
+**********
+
+manch@manch:~ $ curl "localhost:5000/txion" \ -H "Content-Type: application/json" \ -d '{"from"; "akjflw", "to":"fjlakdj", "amount": 3}'
+<!doctype html>
+<html lang=en>
+<title>405 Method Not Allowed</title>
+<h1>Method Not Allowed</h1>
+<p>The method is not allowed for the requested URL.</p>
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+manch@manch:~ $ curl localhost:5000/mine
+{"index": 1, "timestamp": "2024-05-06 04:46:52.441405", "data": {"proof-of-work": 18, "transactions": [{"from": "network", "to": "q3nf394hjg-random-miner-address-34nf3i4nflkn3oi", "amount": 1}]}, "hash": "fdc0d81dfde6dca7388d7a13a7c87bd95279775599af8f231753a70e83043a43"}
+manch@manch:~ $ curl localhost:5000/mine
+{"index": 2, "timestamp": "2024-05-06 04:47:17.392281", "data": {"proof-of-work": 36, "transactions": [{"from": "network", "to": "q3nf394hjg-random-miner-address-34nf3i4nflkn3oi", "amount": 1}]}, "hash": "7c2ea40c89dfbaebaaba9c7ff00d7839bff2c645a422267ebf525fba06b6d16d"}
+manch@manch:~ $ cd ~/python_blockchain_app
+bash: cd: /home/manch/python_blockchain_app: No such file or directory
+manch@manch:~ $ cd iot/lesson10/python_blockchain_app
+manch@manch:~/iot/lesson10/python_blockchain_app $ run_app.py
+bash: run_app.py: command not found
+manch@manch:~/iot/lesson10/python_blockchain_app $ python run_app.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 705-682-762
+127.0.0.1 - - [06/May/2024 04:55:34] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 96, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 86, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 704, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 399, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.11/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.11/http/client.py", line 975, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f8e1e2550>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 788, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /chain (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8e1e2550>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/manch/iot/lesson10/python_blockchain_app/app/views.py", line 39, in index
+    fetch_posts()
+  File "/home/manch/iot/lesson10/python_blockchain_app/app/views.py", line 22, in fetch_posts
+    response = requests.get(get_chain_address)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /chain (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8e1e2550>: Failed to establish a new connection: [Errno 111] Connection refused'))
+127.0.0.1 - - [06/May/2024 04:55:37] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/May/2024 04:55:37] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [06/May/2024 04:55:39] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [06/May/2024 04:55:41] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/May/2024 04:55:58] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 96, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 86, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 704, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 399, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.11/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.11/http/client.py", line 975, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f8d08dc10>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 788, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /chain (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8d08dc10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/manch/iot/lesson10/python_blockchain_app/app/views.py", line 39, in index
+    fetch_posts()
+  File "/home/manch/iot/lesson10/python_blockchain_app/app/views.py", line 22, in fetch_posts
+    response = requests.get(get_chain_address)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /chain (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f8d08dc10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+127.0.0.1 - - [06/May/2024 04:55:59] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+127.0.0.1 - - [06/May/2024 04:55:59] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/May/2024 04:55:59] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+127.0.0.1 - - [06/May/2024 04:56:00] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+
