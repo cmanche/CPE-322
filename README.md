@@ -1,6 +1,14 @@
 ## LABS
-1. [Lab 1](/Labs/Lab1/)
-
+1. [Lab 1](Labs/Lab1/Lab1.md)
+2. [Lab 2](Labs/Lab2/Lab2.md)
+3. [Lab 3](Labs/Lab3/Lab3.md)
+4. [Lab 4](Labs/Lab4/Lab4.md)
+5. [Lab 5](Labs/Lab5/Lab5.md)
+6. [Lab 6](Labs/Lab6/Lab6.md)
+7. [Lab 7](/Labs/Lab7/Lab7.md)
+8. [Lab 8](/Labs/Lab8/Lab8.md)
+9. [Lab 9](/Labs/Lab9/Lab9.md)
+10. [Lab 10](/Labs/Lab10/Lab10.md)
 ---
 # My name is Chris Mancheno. 
 ## I am a Computer Engineering Student. 
