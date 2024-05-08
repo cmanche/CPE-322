@@ -4,7 +4,7 @@
 ![](/Labs/Lab1/adder.png)
 ![](/Labs/Lab1/diff.png)
 
-eventually got it working
+### eventually got it working
 
 ### 4 to 1
 ![4 to 1](/Labs/Lab1/4to1.png "4to1")
