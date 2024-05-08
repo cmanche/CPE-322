@@ -8,4 +8,5 @@
 ### HalfAdder
 ![HalfAdder](/Labs/Lab1/HalfAdder.png "HA")
 
-# Command Line Output
+# [Command Line Output](/Labs/Lab1/lab1_output.txt)
+
