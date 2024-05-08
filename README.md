@@ -1,3 +1,7 @@
+## LABS
+1. [Lab 1](/Labs/Lab1/)
+
+---
 # My name is Chris Mancheno. 
 ## I am a Computer Engineering Student. 
 ### I am a Junior
