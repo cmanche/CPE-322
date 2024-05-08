@@ -1,2 +1,2 @@
-# [Command Line Output](/Labs/Lab4/lab4_output.txt)
-### Raspberry Pi kept crashing when attempting to install
+# No Commnd Line Output
+### Raspberry Pi kept crashing when attempting to install the django server files and alternatives
