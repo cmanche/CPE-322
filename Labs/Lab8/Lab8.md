@@ -2,6 +2,6 @@
 ### Note that the txt file above shows a text file of the output of commands used in the lab
 
 ## Screenshots
-![?](Labs/Lab8/Scatterplot.png)
+![?](Scatterplot.png)
 ---
 
